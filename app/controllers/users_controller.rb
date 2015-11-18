@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+    @wages = daily_budget_calculation
 	end
 
 	def edit
@@ -41,9 +42,12 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def savings
+  def daily_budget_calculation
+    # find current user
     @user = current_user
-    @budget = Budget.find_by(user_id: current_user.id)
+    # find users budget
+    @wages = @user.budget.net_wages
+    @fixed_expenses = @user.budget.rent_mortgage + @user.budget.car + @user.budget.public_transportation + @user.budget.insurance + @user.budget.utilities + @user.budget.internet + @user.budget.cell_phone + @user.budget.gym + @user.budget.charity_donations + @user.budget.student_loan + @user.budget.credit_card + @user.budget.other_expenses
   end
 
 	private
