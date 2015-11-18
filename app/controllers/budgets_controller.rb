@@ -10,6 +10,8 @@ class BudgetsController < ApplicationController
     # if new budget made 
     # save budget
     if @budget.save
+      #set budget user_id to user id
+      @user.budget = @budget
       # redirect to user profile
       redirect_to @user
     else
