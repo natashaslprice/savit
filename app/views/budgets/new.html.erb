@@ -1,2 +1,62 @@
-<h1>Budgets#new</h1>
-<p>Find me in app/views/budgets/new.html.erb</p>
+<div class="container">
+  <div class="col-xs-12">
+    <div class="well">
+      <h4 class="text-center">Create your budget</h4>
+      <br>
+      <!-- error message -->
+      <% if @users_error %>
+        <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
+      <% end %>
+      <p>Help us understand your monthly income and fixed expenses.</p>
+      <div id="new-budget-form">
+        <%= form_for @budget do |f| %>
+          <%= f.label :net_wages, value: "How much to you earn each month after taxes?" %>
+          <%= f.text_field :net_wages, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $",  autofocus: true %>
+          <br>
+          <%= f.label :rent_mortgage, value: "What is your rent or mortgage payment each month?" %>
+          <%= f.text_field :rent_mortgage, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.label :car, value: "How much do you spend on your car each month (ex: car payment, insurance)?" %>
+          <%= f.text_field :car, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.label :public_transportation, value: "How much do you pay for your transit pass each month?" %>
+          <%= f.text_field :public_transportation, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.label :insurance, value: "How much do you pay for insurance each month (ex: health, life, homeowner, renters)?" %>
+          <%= f.text_field :insurance, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.label :utilities, value: "How much do you pay for your utilities each month (ex: power, gas, water, garbage)?" %>
+          <%= f.text_field :utilities, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.label :internet, value: "How much do you pay for your internet/cable/home phone each month?" %>
+          <%= f.text_field :internet, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.label :cell_phone, value: "How much do you pay for your cell phone each month?" %>
+          <%= f.text_field :cell_phone, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.label :gym, value: "How much do you pay for your gym membership each month?" %>
+          <%= f.text_field :gym, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+					<%= f.label :charity_donations, value: "How much do you donate to charity each month?" %>
+          <%= f.text_field :charity_donations, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+					<%= f.label :student_loan, value: "How much do you pay for your student loans each month?" %>
+          <%= f.text_field :student_loan, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+					<%= f.label :credit_card, value: "How much do you pay towards your credit card each month?" %>
+          <%= f.text_field :credit_card, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+					<%= f.label :other_expenses, value: "Please list any additional reoccuring monthly fixed expenses?" %>
+          <%= f.text_field :other_expenses, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
+          <br>
+          <%= f.text_field :other_string, class: "form-control", placeholder: "give a one word description of each expense" %>
+          <br>
+         
+          <div class="text-right">
+            <%= f.submit 'signup', value: "Submit", class: "btn btn-success text-right" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

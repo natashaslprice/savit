@@ -8,14 +8,18 @@ class UsersController < ApplicationController
 
 	def create
 		 @user = User.new(user_params)
+     #upon success, save user
     if @user.save
+      #set session
       session[:user_id] = @user.id
-      redirect_to @user, flash: { success: "Successfully signed up!" }
+      #redirect to first page of new budget and flash message that sign-up successful
+      redirect_to new_budget_path , flash: { success: "Successfully signed up!" }
     else
       # show errors
       @users_error = flash[:error] = @user.errors.full_messages.join(', ')
       #if not saved return to new post form
       render :new
+
     end
 	end
 
