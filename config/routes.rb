@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'transactions/show'
+
+  get 'transactions/new'
+
+  get 'transactions/create'
+
+  get 'transactions/edit'
+
+  get 'transactions/udpate'
+
+  get 'transactions/destroy'
+
   get 'budgets/new'
 
   get 'budgets/create'
