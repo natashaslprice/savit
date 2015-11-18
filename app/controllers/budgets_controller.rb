@@ -4,6 +4,20 @@ class BudgetsController < ApplicationController
   end
 
   def create
+    # find current_user
+    @user = current_user
+    @budget = Budget.new(budget_params)
+    # if new budget made 
+    # save budget
+    if @budget.save
+      # redirect to user profile
+      redirect_to @user
+    else
+      # show errors
+      @budget_error = flash[:error] = @budget.errors.full_messages.join(', ')
+      # redirect to new budget form page
+      render :new
+    end
   end
 
   def edit
@@ -13,5 +27,11 @@ class BudgetsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def budget_params
+    params.require(:budget).permit(:net_wages, :rent_mortgage, :car, :public_transportation, :insurance, :utilities, :internet, :cell_phone, :gym, :charity_donations, :student_loan, :credit_card, :other_expenses, :other_string)
   end
 end

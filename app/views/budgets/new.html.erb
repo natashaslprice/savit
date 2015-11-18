@@ -4,7 +4,7 @@
       <h4 class="text-center">Create your budget</h4>
       <br>
       <!-- error message -->
-      <% if @users_error %>
+      <% if @budget_error %>
         <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
       <% end %>
       <p>Help us understand your monthly income and fixed expenses.</p>
@@ -46,7 +46,7 @@
 					<%= f.label :credit_card, value: "How much do you pay towards your credit card each month?" %>
           <%= f.text_field :credit_card, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
           <br>
-					<%= f.label :other_expenses, value: "Please list any additional reoccuring monthly fixed expenses?" %>
+					<%= f.label :other_expenses, value: "Please list any other recurring monthly fixed expenses?" %>
           <%= f.text_field :other_expenses, class: "form-control new-budget-input", placeholder: "whole numbers only, do not add a $" %>
           <br>
           <%= f.text_field :other_string, class: "form-control", placeholder: "give a one word description of each expense" %>
