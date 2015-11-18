@@ -46,22 +46,29 @@ class UsersController < ApplicationController
   def savings
     @user = current_user
     @budget = Budget.find_by(user_id: current_user.id)
-    @savings = calculate_monthly_savings.to_i
+    @savings = calculate_monthly_savings_goal.to_i
 
   end
 
+# calculate net budget
   def calculate_net_budget
     user = current_user
     fixed_expenses = user.budget.rent_mortgage + user.budget.car + user.budget.public_transportation + user.budget.insurance + user.budget.utilities + user.budget.internet + user.budget.cell_phone + user.budget.gym + user.budget.charity_donations + user.budget.student_loan + user.budget.credit_card + user.budget.other_expenses
     net_budget = user.budget.net_wages - fixed_expenses
   end
 
-  def calculate_monthly_savings
+# calculate monthly savings based on net budget
+  def calculate_monthly_savings_goal
+    user = current_user
+    @standard_savings = (calculate_net_budget * 0.1).round
+  end
+
+  def daily_savings
     user = current_user
     
-    @standard_savings = (calculate_net_budget * 0.1).round
-
   end
+
+
 
 	private
 
