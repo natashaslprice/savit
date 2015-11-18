@@ -41,6 +41,11 @@ class UsersController < ApplicationController
   def destroy
   end
 
+  def savings
+    @user = current_user
+    @budget = Budget.find_by(user_id: current_user.id)
+  end
+
 	private
 
   def user_params
