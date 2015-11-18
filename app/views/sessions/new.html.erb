@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col-xs-12">
+    <div class="well">
+      <h4 class="text-center">Log In</h4>
+      <br>
+      <!-- error message -->
+      <% if @sessions_error %>
+        <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
+      <% end %>
+      <div id="sign-up-form">
+        <%= form_for :user, url: sessions_path do |f| %>
+          <%= f.label :email %>
+          <%= f.email_field :email, placeholder: "Email", class: "form-control", autofocus: true %>
+          <br>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: "form-control", placeholder: 'Password' %>
+          <br>
+          <div class="text-right">
+            <%= f.submit 'signup', value: "Log in!", class: "btn btn-default" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
