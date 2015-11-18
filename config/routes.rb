@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'budgets/new'
+
+  get 'budgets/create'
+
+  get 'budgets/edit'
+
+  get 'budgets/update'
+
+  get 'budgets/destroy'
+
   resources :users, only: [:index, :new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
 

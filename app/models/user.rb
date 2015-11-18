@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+	# user has one budget
+	has_one :budget
+
 	BCrypt::Engine.cost = 12
 	validates :email, presence: true, uniqueness: true
 	validates :password_digest, presence: true
