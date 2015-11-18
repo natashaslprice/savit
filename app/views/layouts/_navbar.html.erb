@@ -16,9 +16,9 @@
             <!-- Spending(Transactions) -->
             <li class="logged-in"><%= link_to "Spending", spending_path %></li>
             <!-- User Settings -->
-            <li class="logged-in"><%= link_to "User Settings", edit_user_path %></li>
+            <li class="logged-in"><%= link_to "User Settings", edit_user_path(current_user.id) %></li>
             <!-- Financial Settings -->
-            <li class="logged-in"><%= link_to "Financial Settings", edit_budget_path %></li>
+            <li class="logged-in"><%= link_to "Financial Settings", edit_budget_path(@budget.id) %></li>
             <!-- Logout -->
             <li><a href="/logout" id="logout-btn">Logout</a></li>
           </ul>
