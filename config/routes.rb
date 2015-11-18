@@ -22,5 +22,11 @@ Rails.application.routes.draw do
   # get login route 
   get '/login', to: 'sessions#new', as: :login
 
+  # get savings route
+  get '/savings', to: 'users#savings', as: :savings
+
+  #get spending(transactions) route
+  get '/spending', to: 'users#spending', as: :spending
+
 
 end
