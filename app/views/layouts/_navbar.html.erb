@@ -24,21 +24,7 @@
           </ul>
         </li> 
     	</ul>
-
-      
-      <!-- If user is not logged in -->
-      <% else %>
-        <ul class="nav navbar-nav pull-right">
-          <!-- sign up modal button -->
-          <li class="logged-out"><!-- <a href="/signup">Sign Up</a> -->
-            <%= link_to 'Sign Up', '/signup' %>
-          </li>
-          <!-- log in modal button -->
-          <li class="logged-out"><!-- <a href="/login">Log In</a> -->
-            <%= link_to 'Log In', '/login' %>
-          </li>
-        </ul>
-      <% end %>
+    <% end %>
   </div>
 </div>
 </nav>
