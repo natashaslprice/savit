@@ -65,7 +65,8 @@ class UsersController < ApplicationController
 
   def daily_savings
     user = current_user
-    
+    user.transactions.amount
+    day1_transactions = 
   end
 
 

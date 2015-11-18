@@ -1,2 +1,22 @@
 <%= render "layouts/navbar" %>
-<h1>Success!!!</h1>
+<div class="container">
+  <div class="col-xs-12">
+  	<!-- users daily budget -->
+  	<div class="jumbotron text-center">
+  		<h3><%= @user.first_name %>, your daily budget is:</h3>
+  		<h1>$<%=@daily_budget%></h1>
+  	</div>
+  	<hr>
+  	<!-- spending form -->
+		<div class="col-xs-6 col-xs-offset-3 text-center">
+			<div class="new-spending-form">
+				<%= form_for @transaction do |f| %>
+					<%= f.label :amount %>
+					<%= f.text_field :amount, class: "form-control", placeholder: "Enter spending here" %>
+					<br>
+					<%= f.submit class: "btn-success text-right" %>
+				<% end %>
+			</div>
+    </div>
+  </div>
+</div>

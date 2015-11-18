@@ -28,5 +28,8 @@ Rails.application.routes.draw do
   #get spending(transactions) route
   get '/spending', to: 'users#spending', as: :spending
 
+  # post new transaction to user profile
+  post 'transactions/new' => 'users#show'
+
 
 end
