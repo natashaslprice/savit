@@ -14,6 +14,9 @@
 					<%= f.label :amount %>
 					<%= f.text_field :amount, class: "form-control", placeholder: "Enter spending here" %>
 					<br>
+          <%= f.label :tag_list %>
+          <%= f.text_field :tag_list, class: "form-control", placeholder: "Enter spending category here" %>
+          <br>
 					<%= f.submit class: "btn-success text-right" %>
 				<% end %>
 			</div>
@@ -31,7 +34,9 @@
           <% @user.daily_transactions.reverse.each do |t| %> 
             
             <div class="row">
-              <h3 class="text-center"><%=t.created_at.to_formatted_s(:time) %> $<%= t.amount %> Tags</h3> 
+              <h3 class="text-center"><%=t.created_at.to_formatted_s(:time) %> $<%= t.amount %>
+            Category: <%= t.tag_list %> 
+          </h3> 
             </div>
               
              
