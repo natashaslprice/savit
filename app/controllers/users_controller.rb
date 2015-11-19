@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     @daily_budget = @user.calculate_daily_budget.to_i
     # give show page a transaction 
     @transaction = Transaction.new
+   
 	end
 
 	def edit
