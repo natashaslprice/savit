@@ -60,11 +60,12 @@ class User < ActiveRecord::Base
 	def daily_transactions
 		# get the time now
 		time_now = Time.new
+		daily_trans = []
 		#convert this to the day of the year
-		day = time_now.yday
-		transactions.each do |transaction|
-			if day == transaction.created_at.yday
-				return transaction
+		day = Time.current.in_time_zone.yday
+		transactions.each do |t|
+			if day == t.created_at.yday
+				daily_trans << t
 			end
 		end
 	end
@@ -73,10 +74,15 @@ class User < ActiveRecord::Base
 		# sums values of array
 		# create empty array
 		array = []
+		#convert this to the day of the year
+		day = Time.current.in_time_zone.yday
 		# iterate over transactions
-		transactions = daily_transactions.each do |t|
-			# push amounts into array
-			array << t.amount 
+		transactions.each do |t|
+			# push amounts into array if they are from today
+			if day == t.created_at.yday
+				array << t.amount 
+			end
+			
 		end
 		sum = array.sum	
 		return sum
