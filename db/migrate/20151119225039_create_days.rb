@@ -4,6 +4,9 @@ class CreateDays < ActiveRecord::Migration
       t.integer :budget
       t.integer :transactions_sum
 
+      # days belong to user
+      t.belongs_to :user
+
       t.timestamps null: false
     end
   end
