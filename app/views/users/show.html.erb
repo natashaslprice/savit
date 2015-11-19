@@ -23,6 +23,8 @@
         <%= f.text_field :tag_list, class: "form-control text-center", placeholder: "What category is your purchase in?" %>
         <br>
         <span class="pull-right"><%= f.submit class: "btn-success text-right" %></span>
+        <br>
+        <br>
       <% end %>
     </div>
 
@@ -32,8 +34,8 @@
       <ul class="list-group">
         <% if @user.daily_transactions.any? %>
           <% @user.daily_transactions.reverse.each do |t| %>  
-            <li class="list-group-item">
-              <div class=""><%=t.created_at.to_formatted_s(:time) %>&nbsp;$<%= t.amount %>&nbsp; <%= t.tag_list %></div> 
+            <li class="list-group-item text-center">
+              <div><span class="pull-left"><%=t.created_at.to_formatted_s(:time) %></span>$<%= t.amount %><span class="pull-right"><%= t.tag_list %></span></div> 
             </li>
           <% end %>
         <% end %>
