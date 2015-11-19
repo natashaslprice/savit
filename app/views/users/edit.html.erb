@@ -1,22 +1,22 @@
 <div class="container">
   <div class="col-xs-12">
     <div class="well">
-      <h4 class="text-center">Sign Up</h4>
+      <h4 class="text-center">Edit Profile</h4>
       <br>
       <!-- error message -->
       <% if @users_error %>
         <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
       <% end %>
-      <div id="sign-up-form">
+      <div id="edit-user-form">
         <%= form_for @user do |f| %>
           <%= f.label :first_name %>
-          <%= f.text_field :first_name, class: "form-control", placeholder: @user.first_name, autofocus: true %>
+          <%= f.text_field :first_name, class: "form-control", autofocus: true %>
           <br>
           <%= f.label :last_name %>
-          <%= f.text_field :last_name, class: "form-control", placeholder: @user.last_name %>
+          <%= f.text_field :last_name, class: "form-control" %>
           <br>
           <%= f.label :email %>
-          <%= f.email_field :email, class: "form-control", placeholder: @user.email %>
+          <%= f.email_field :email, class: "form-control" %>
           <br>
           <%= f.label :password %>
           <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
@@ -25,7 +25,7 @@
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: 'confirm password' %>
           <br>
           <div class="text-right">
-            <%= f.submit 'signup', value: "Sign up!", class: "btn btn-success text-right" %>
+            <%= f.submit 'submit', value: "Submit", class: "btn btn-success text-right" %>
           </div>
         <% end %>
       </div>

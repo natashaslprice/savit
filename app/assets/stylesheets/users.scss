@@ -1,10 +1,12 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.dropdown-menu {
-	left: -80px;
-}
 
 body {
 	padding-top: 80px;
+}
+
+.input-group-addon {
+	border: none;
+	border-radius: 10px;
 }

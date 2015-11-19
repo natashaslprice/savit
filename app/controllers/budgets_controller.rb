@@ -6,6 +6,7 @@ class BudgetsController < ApplicationController
   def create
     # find current_user
     @user = current_user
+    
     @budget = Budget.new(budget_params)
     # if new budget made 
     # save budget
@@ -23,9 +24,17 @@ class BudgetsController < ApplicationController
   end
 
   def edit
+    user = current_user
+    @budget = user.budget
+
   end
 
   def update
+    user = current_user
+    budget = user.budget
+    budget.update_attributes(budget_params)
+    redirect_to user
+
   end
 
   def destroy
