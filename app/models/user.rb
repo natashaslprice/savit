@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 	has_one :budget, dependent: :destroy
 	# user has many transactions
 	has_many :transactions, dependent: :destroy
+	# user has many days
+	has_many :days, dependent: :destroy
 
 	BCrypt::Engine.cost = 12
 	validates :email, presence: true, uniqueness: true
