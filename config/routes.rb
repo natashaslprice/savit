@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   # get '/profile', to: 'users#show', as: :profile
 
+  get '/today', to: 'transactions#new', as: :today
+
   get '/logout', to: 'sessions#destroy', as: :logout
 
   # get signup route 
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
   get '/spending', to: 'users#spending', as: :spending
 
   # post new transaction to user profile
-  post 'transactions/new' => 'users#show'
+  # post 'transactions/new' => 'users#show'
 
 
 end

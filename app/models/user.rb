@@ -46,9 +46,9 @@ class User < ActiveRecord::Base
 	end
 
 	# calculate monthly savings based on net budget
-	# def calculate_monthly_savings_goal
-	# 	return (calculate_net_budget * 0.1).round
-	# end
+	def calculate_monthly_savings_goal
+		return (calculate_net_budget * 0.1).round
+	end
 
 	def calculate_daily_budget  
 	    # get net budget
