@@ -44,15 +44,15 @@ class User < ActiveRecord::Base
 	end
 
 	# calculate monthly savings based on net budget
-	def calculate_monthly_savings_goal
-		return (calculate_net_budget * 0.1).round
-	end
+	# def calculate_monthly_savings_goal
+	# 	return (calculate_net_budget * 0.1).round
+	# end
 
 	def calculate_daily_budget  
 	    # get net budget
 	    net_budget = calculate_net_budget	    
 	    # flexible spending less 10% savings
-	    flexible_spending = net_budget - calculate_monthly_savings_goal 
+	    flexible_spending = net_budget
 	    # return daily budget
 	    return (flexible_spending / 30) - daily_transactions_sum
 	end
@@ -120,11 +120,4 @@ class User < ActiveRecord::Base
 		# total of monthly_savings_goal plus total budget minus sum of transactions array
 		return total_savings_goal + total_budget - total_transactions
 	end
-
-
-
-
-
-
-
 end
