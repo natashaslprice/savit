@@ -33,6 +33,13 @@
       <br>
       <ul class="list-group">
         <% if @user.daily_transactions.any? %>
+          <% @user.daily_transactions.reverse.each do |t| %> 
+            
+            <div class="row">
+              <div class="text-center"><%=t.created_at.to_formatted_s(:time) %>&nbsp;$<%= t.amount %>&nbsp; <%= t.tag_list %> 
+              <button> <%= link_to 'X', transaction_path, method: :delete %></button>
+          </div> 
+            </div>
           <% @user.daily_transactions.reverse.each do |t| %>  
             <li class="list-group-item text-center">
               <div><span class="pull-left"><%=t.created_at.to_formatted_s(:time) %></span>$<%= t.amount %><span class="pull-right"><%= t.tag_list %></span></div> 
