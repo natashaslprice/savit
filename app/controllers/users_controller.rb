@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     # find time now
     now = Time.now.yday
     # number of days is difference between now and last 
-    number_of_days = now - last_as_day
+    number_of_days = (now - last_as_day) + 1
     # find total daily budget based on number of days
     income_to_add = ((@user.calculate_net_budget - @user.calculate_monthly_savings_goal) / 30) * number_of_days
     #  find daily spending to subtract based on number of days
@@ -82,9 +82,12 @@ class UsersController < ApplicationController
       end
       @spending_to_subtract = transactions_array.sum 
     end
-    # find users savings
-    @savings = @user.calculate_monthly_savings_goal.to_i + income_to_add.to_i - @spending_to_subtract.to_i
+    # find users monthly savings
+    @monthly_savings = @user.calculate_monthly_savings_goal.to_i + income_to_add.to_i - @spending_to_subtract.to_i
+    # find users total savings
+    @total_savings = @user.total_savings
   end
+
 
 	private
 
