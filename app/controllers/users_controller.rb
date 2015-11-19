@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	def index
+
+  def index
 	end
 	
 	def new
@@ -24,10 +25,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
-    # find user
+    #define budget for nav bar rendering
+    @budget = Budget.find_by(user_id: current_user.id)
+     # find user
     @user = current_user
     # find daily budget
-    @daily_budget = daily_budget_calculation.to_i
+    @daily_budget = @user.calculate_daily_budget.to_i
     # give show page a transaction 
     @transaction = Transaction.new
 	end
@@ -47,24 +50,11 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def daily_budget_calculation
-    # find current user
-    user = current_user
-    # net wages
-    net_wages = user.budget.net_wages
-    # find users budget
-    fixed_expenses = user.budget.rent_mortgage + user.budget.car + user.budget.public_transportation + user.budget.insurance + user.budget.utilities + user.budget.internet + user.budget.cell_phone + user.budget.gym + user.budget.charity_donations + user.budget.student_loan + user.budget.credit_card + user.budget.other_expenses
-    # flexible spending less 10% savings
-    flexible_spending = (net_wages - fixed_expenses) * 0.9
-    # find daily budget
-    @daily_budget = flexible_spending / 30
-  end
+  def savings
+    @user = current_user
+    @budget = Budget.find_by(user_id: current_user.id)
+    @savings = @user.calculate_monthly_savings_goal.to_i
 
-  def daily_spending
-    # find current user
-    user = current_user
-    # find users transactions
-    transactions = user.transactions
   end
 
 	private
