@@ -16,6 +16,7 @@ class CreateBudgets < ActiveRecord::Migration
       t.integer :other_expenses
       t.string :other_string
       t.integer :savings
+     
 
       # belongs to user
       t.belongs_to :user
