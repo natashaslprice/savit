@@ -25,14 +25,14 @@ class UsersController < ApplicationController
 	end
 
 	def show
-    #define budget for nav bar rendering
-    @budget = Budget.find_by(user_id: current_user.id)
-     # find user
-    @user = current_user
-    # find daily budget
-    @daily_budget = @user.calculate_daily_budget.to_i
-    # give show page a transaction 
-    @transaction = Transaction.new
+   # #define budget for nav bar rendering
+   #  @budget = Budget.find_by(user_id: current_user.id)
+   #   # find user
+   #  @user = current_user
+   #  # find daily budget
+   #  @daily_budget = @user.calculate_daily_budget.to_i
+   #  # give show page a transaction 
+   #  @transaction = Transaction.new
    
 	end
 

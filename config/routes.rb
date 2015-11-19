@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # root route
   root 'users#index'
 
-  get '/profile', to: 'users#show', as: :profile
+  get '/today', to: 'transactions#new', as: :today
 
   get '/logout', to: 'sessions#destroy', as: :logout
 
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get '/spending', to: 'users#spending', as: :spending
 
   # post new transaction to user profile
-  post 'transactions/new' => 'users#show'
+  # post 'transactions/new' => 'users#show'
 
 
 end

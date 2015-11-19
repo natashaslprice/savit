@@ -10,7 +10,7 @@
         <li class="logged-in"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <!-- Profile -->
-   		     	<li class="logged-in"><%= link_to "Profile", @user %></li>
+   		     	<li class="logged-in"><%= link_to "Today", new_transaction_path %></li>
             <!-- Savings -->
             <li class="logged-in" id="savings-btn"><%= link_to "Savings", savings_path %></li>
             <!-- Spending(Transactions) -->
