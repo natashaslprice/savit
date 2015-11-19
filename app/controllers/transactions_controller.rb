@@ -32,6 +32,13 @@ class TransactionsController < ApplicationController
   end
 
   def destroy
+     # find current user
+    @user = current_user
+    # find post to delete
+    transaction = Transaction.find(params[:id])
+    # destroy post
+    transaction.destroy
+    redirect_to @user
   end
 
   private

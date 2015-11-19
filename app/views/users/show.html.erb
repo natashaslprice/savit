@@ -1,56 +1,53 @@
 <%= render "layouts/navbar" %>
 <div class="container">
-  <div class="col-xs-12">
-  	<!-- users daily budget -->
+  <div class="row">
+    <!-- users daily budget -->
   	<div class="jumbotron text-center">
   		<h3><%= @user.first_name %>, your budget for today is:</h3>
   		<h1>$<%=@daily_budget%></h1>
   	</div>
-  	<hr>
-  	<!-- spending form -->
-		<div class="col-xs-6 col-xs-offset-3 text-center">
-			<div class="new-spending-form">
-				<%= form_for @transaction do |f| %>
-					<%= f.label :amount %>
-          <div class="input-group">
-           <span class="input-group-addon">$</span>
-					<%= f.text_field :amount, class: "form-control text-center", placeholder: "Enter spending here" %>
-           <span class="input-group-addon">.00</span>
-           </div>
-					<br>
-          <%= f.label :tag_list %>
-          <%= f.text_field :tag_list, class: "form-control text-center", placeholder: "Enter spending category here" %>
-          <br>
-					<%= f.submit class: "btn-success text-right" %>
-				<% end %>
-			</div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
+  </div> <!-- end of row div -->
+  <hr>
+  <!-- spending form -->
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10">
-        <h1 class="text-center">Today's Transactions</h1>
+    <div class="col-sm-5 new-spending-form">
+      <h4 class="text-center">Every time you buy something, enter it here:</h4>
+      <br>
+      <%= form_for @transaction do |f| %>
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <%= f.text_field :amount, class: "form-control text-center", placeholder: "How much did you spend?" %>
+          <span class="input-group-addon">.00</span>
+        </div>
+        <br>
+        <%= f.text_field :tag_list, class: "form-control text-center", placeholder: "What category is your purchase in?" %>
+        <br>
+        <span class="pull-right"><%= f.submit class: "btn-success text-right" %></span>
+        <br>
+        <br>
+      <% end %>
+    </div> <!-- end of col div -->
+
+    <div class="col-sm-5 col-sm-offset-2 todays-transactions">
+      <h4 class="text-center">Today's Transactions</h4>
+      <br>
+      <ul class="list-group">
         <% if @user.daily_transactions.any? %>
           <% @user.daily_transactions.reverse.each do |t| %> 
             
             <div class="row">
               <div class="text-center"><%=t.created_at.to_formatted_s(:time) %>&nbsp;$<%= t.amount %>&nbsp; <%= t.tag_list %> 
+              <button> <%= link_to 'X', transaction_path, method: :delete %></button>
           </div> 
             </div>
-              
-             
+          <% @user.daily_transactions.reverse.each do |t| %>  
+            <li class="list-group-item text-center">
+              <div><span class="pull-left"><%=t.created_at.to_formatted_s(:time) %></span>$<%= t.amount %><span class="pull-right"><%= t.tag_list %></span></div> 
+            </li>
           <% end %>
         <% end %>
-        </div>
-      <div class="col-xs-1"></div>
-      <!-- total of transactions for today - not shown to user -->
-     <!-- <%= @user.daily_transactions_sum %>  -->
-      
-      
-    </div>
-  </div>
+      </ul>
+    </div> <!-- end of col div -->
+
+  </div> <!-- end of row div -->
 </div>
