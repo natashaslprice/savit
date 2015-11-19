@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
 	def edit
     @user = User.find(params[:id])
+    @budget = Budget.find_by(user_id: current_user.id)
   end
 
   def update

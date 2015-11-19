@@ -25,14 +25,14 @@ class BudgetsController < ApplicationController
 
   def edit
     user = current_user
-    @budget = user.budget
+    @budget = Budget.find_by(user_id: current_user.id)
 
   end
 
   def update
     user = current_user
-    budget = user.budget
-    budget.update_attributes(budget_params)
+    @budget = Budget.find_by(user_id: current_user.id)
+    @budget.update_attributes(budget_params)
     redirect_to user
 
   end
