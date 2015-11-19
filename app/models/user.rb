@@ -82,12 +82,33 @@ class User < ActiveRecord::Base
 			# push amounts into array if they are from today
 			if day == t.created_at.yday
 				array << t.amount 
-			end
-			
+			end	
 		end
 		sum = array.sum	
 		return sum
 	end
+
+	def total_savings
+		# get daily budget, before removing 10% savings
+		daily_budget = calculate_net_budget / 30
+		# find number of days user has been active
+		user_created_at = created_at.yday
+		time_now = Time.now.yday
+		total_user_days = (time_now - user_created_at) + 1
+		# find total budget for user since inception
+		total_budget = daily_budget * total_user_days
+		# find all transactions for that user since inception
+		all_transactions = transactions.all
+		# find sum of all transaction amounts
+		all_transactions_array = []
+		all_transactions.each do |t|
+			all_transactions_array << t.amount
+		end
+		total_transactions = all_transactions_array.sum
+		# find total savings
+		return total_budget - total_transactions 
+	end
+
 
 
 
