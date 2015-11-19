@@ -25,7 +25,14 @@ class UsersController < ApplicationController
 	end
 
 	def show
-    @budget = Budget.find_by(user_id: current_user.id)
+   # find current user's budget
+   @budget = Budget.find_by(user_id: current_user.id)
+   # find user
+   @user = current_user
+   # find daily budget
+   @daily_budget = daily_budget_calculation.to_i
+   # give show page a transaction 
+   @transaction = Transaction.new
 	end
 
 	def edit
@@ -50,24 +57,7 @@ class UsersController < ApplicationController
 
   end
 
-# calculate net budget
-  def calculate_net_budget
-    user = current_user
-    fixed_expenses = user.budget.rent_mortgage + user.budget.car + user.budget.public_transportation + user.budget.insurance + user.budget.utilities + user.budget.internet + user.budget.cell_phone + user.budget.gym + user.budget.charity_donations + user.budget.student_loan + user.budget.credit_card + user.budget.other_expenses
-    net_budget = user.budget.net_wages - fixed_expenses
-  end
 
-# calculate monthly savings based on net budget
-  def calculate_monthly_savings_goal
-    user = current_user
-    @standard_savings = (calculate_net_budget * 0.1).round
-  end
-
-  def daily_savings
-    user = current_user
-    user.transactions.amount
-    day1_transactions = 
-  end
 
 
 
