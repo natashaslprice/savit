@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
 # finds today's transactions as an array
 	def daily_transactions
 		# get the time now
-		time_now = Time.new
+		# time_now = Time.new
 		daily_trans = []
 		#convert this to the day of the year
 		day = Time.current.in_time_zone.yday
@@ -68,6 +68,7 @@ class User < ActiveRecord::Base
 				daily_trans << t
 			end
 		end
+		return daily_trans
 	end
 # this sums up the transactions for the day
 	def daily_transactions_sum
