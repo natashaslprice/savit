@@ -51,10 +51,38 @@ class UsersController < ApplicationController
   end
 
   def savings
+    # find user
     @user = current_user
+    # find budget for navbar
     @budget = Budget.find_by(user_id: current_user.id)
-    @savings = @user.calculate_monthly_savings_goal.to_i
-
+    # find users savings
+    # @savings = @user.calculate_monthly_savings_goal.to_i
+    # find users transactions
+    transactions = @user.transactions
+    #  find last time savings viewed and updated
+    if @budget.savings_update == nil
+      last_as_time = @budget.created_at
+      last_as_day = @budget.created_at.yday
+    else
+      last_as_time = @budget.savings_update 
+      last_as_day = @budget.savings_update.yday
+    end
+    # find time now
+    now = Time.now.yday
+    # number of days is difference between now and last 
+    number_of_days = now - last_as_day
+    # find total daily budget based on number of days
+    income_to_add = ((@user.calculate_net_budget - @user.calculate_monthly_savings_goal) / 30) * number_of_days
+    #  find daily spending to subtract based on number of days
+    transactions_array = []
+    transactions.each do |t|
+      if t.created_at > last_as_time  
+        transactions_array << t.amount
+      end
+      @spending_to_subtract = transactions_array.sum 
+    end
+    # find users savings
+    @savings = @user.calculate_monthly_savings_goal.to_i + income_to_add.to_i - @spending_to_subtract.to_i
   end
 
 	private
