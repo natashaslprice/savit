@@ -16,14 +16,12 @@
       <ul class="nav navbar-nav">
         <!-- Profile -->
         <li class="logged-in"><%= link_to "Today", '/today' %></li>
-        <!-- Savings -->
-        <li class="logged-in" id="savings-btn"><%= link_to "Savings", savings_path %></li>
-        <!-- Spending(Transactions) -->
-        <li class="logged-in"><%= link_to "Spending", spending_path %></li>
-        <!-- User Settings -->
-        <li class="logged-in"><%= link_to "User Settings", edit_user_path(current_user.id) %></li>
-        <!-- Financial Settings -->
-        <li class="logged-in"><%= link_to "Financial Settings", edit_budget_path(@budget.id) %></li>
+        <!-- Dashboard -->
+        <li class="logged-in" id="dashboard-btn"><%= link_to "Dashboard", '/dashboard' %></li>
+        <!-- Edit Profile -->
+        <li class="logged-in"><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+        <!-- Edit Budget -->
+        <li class="logged-in"><%= link_to "Edit Budget", edit_budget_path(@budget.id) %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <!-- Logout -->
