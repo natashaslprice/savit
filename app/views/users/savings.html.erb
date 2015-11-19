@@ -1,16 +1,30 @@
 <%= render "layouts/navbar" %>
-<div class="jumbotron">
+<div class="page-header text-center">
 	<h1>Savings</h1>
 </div>
-	<h3>Some title</h3>
+
+<section class="text-center">
+	<h3>If you stick with your daily budget, you will save:</h3>
+	<h1>$<%=@savings%></h1>
+	<h3>this month!!</h3>
+</section>
+<hr>
+<section class="text-center">
+	<h3>Here's your daily budget performance over the last 10 days:</h3>
+	
 	<div class="row">
-	  <div class="col-xs-2 col-xs-offset-1">
-	    <div class="thumbnail">
-	      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Noun_project_-_plus_round.svg/100px-Noun_project_-_plus_round.svg.png">
-	    </div>
-	  </div> 
+		<!-- extra div to manually offset thumbnails below -->
+		<div class="col-xs-1"></div>
+		<% 10.times do |s| %>
+		<div class="col-xs-1">
+			<div class="thumbnail">
+				+
+			</div>
+		</div> 
+		<% end %>
+		<!-- extra div to manually offset thumbnails above, completing col of 12 -->
+		<div class="col-xs-1"></div>
 	</div>
-
-
-	<h3>This month you're going to save:</h3>
-	<h1>$<%=@savings%><h1>
+	
+</section>
+	

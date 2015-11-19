@@ -20,7 +20,28 @@
     </div>
   </div>
 </div>
-  <% @user.daily_transactions.reverse.each do |t| %> 
-<p><%= t.amount %></p>  
-<% end %>
-<%= @user.daily_transactions_sum %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-4">
+        <% if @user.daily_transactions.any? %>
+          <% @user.daily_transactions.reverse.each do |t| %> 
+            
+            <div class="row">
+              <h3 class="text-center"><%=t.created_at.to_formatted_s(:time) %> <%= t.amount %> hello</h3> 
+            </div>
+              
+             
+          <% end %>
+        <% end %>
+        </div>
+      <div class="col-xs-4"></div>
+      <!-- total of transactions for today - not shown to user -->
+     <!-- <%= @user.daily_transactions_sum %>  -->
+      
+      
+    </div>
+  </div>
+</div>
