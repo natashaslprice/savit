@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   # root route
   root 'users#index'
 
-  get '/profile', to: 'users#show', as: :profile
+  get '/dashboard', to: 'users#show', as: :dashboard
+
+  # get '/profile', to: 'users#show', as: :profile
 
   get '/logout', to: 'sessions#destroy', as: :logout
 
