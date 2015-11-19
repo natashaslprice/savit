@@ -52,10 +52,38 @@ class User < ActiveRecord::Base
 	    # get net budget
 	    net_budget = calculate_net_budget	    
 	    # flexible spending less 10% savings
-	    flexible_spending = net_budget - calculate_monthly_savings_goal
+	    flexible_spending = net_budget - calculate_monthly_savings_goal 
 	    # return daily budget
-	    return flexible_spending / 30
+	    return (flexible_spending / 30) - daily_transactions_sum
 	end
+# finds today's transactions as an array
+	def daily_transactions
+		# get the time now
+		time_now = Time.new
+		#convert this to the day of the year
+		day = time_now.yday
+		transactions.each do |transaction|
+			if day == transaction.created_at.yday
+				return transaction
+			end
+		end
+	end
+# this sums up the transactions for the day
+	def daily_transactions_sum
+		# sums values of array
+		# create empty array
+		array = []
+		# iterate over transactions
+		transactions = daily_transactions.each do |t|
+			# push amounts into array
+			array << t.amount 
+		end
+		sum = array.sum	
+		return sum
+	end
+
+
+
 
 
 end

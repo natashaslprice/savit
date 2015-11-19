@@ -20,3 +20,7 @@
     </div>
   </div>
 </div>
+  <% @user.daily_transactions.reverse.each do |t| %> 
+<p><%= t.amount %></p>  
+<% end %>
+<%= @user.daily_transactions_sum %>
