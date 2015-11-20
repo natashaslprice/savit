@@ -24,20 +24,9 @@ class UsersController < ApplicationController
     end
 	end
 
-	def show
-   # #define budget for nav bar rendering
-   #  @budget = Budget.find_by(user_id: current_user.id)
-   #   # find user
-   #  @user = current_user
-   #  # find daily budget
-   #  @daily_budget = @user.calculate_daily_budget.to_i
-   #  # give show page a transaction 
-   #  @transaction = Transaction.new
-   
-	end
-
 	def edit
     @user = User.find(params[:id])
+    @budget = Budget.find_by(user_id: current_user.id)
   end
 
   def update
@@ -51,7 +40,7 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def savings
+  def show
     # find user
     @user = current_user
     # find budget for navbar
@@ -83,7 +72,7 @@ class UsersController < ApplicationController
     #   @spending_to_subtract = transactions_array.sum 
     # end
     # find users monthly savings
-    @monthly_savings = @user.calculate_monthly_savings_goal.to_i 
+    # @monthly_savings = @user.calculate_monthly_savings_goal.to_i 
     @total_savings = @user.total_savings
   end
 
