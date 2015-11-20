@@ -1,6 +1,6 @@
-$(document).ready(function() {
+// $(document).ready(function() {
 
-	console.log("Javascript working!");
-	$('.new-budget-input').regexMask(/^\d+$/);
+// 	console.log("Javascript working!");
+// 	$('.new-budget-input').regexMask(/^\d+$/);
 
-});
+// });
