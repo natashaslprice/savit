@@ -12,7 +12,7 @@ class Day < ActiveRecord::Base
 				})
 
 			if @day.save
-				@user.day << @day
+				@user.days << @day
 			end
 		end
 	end
