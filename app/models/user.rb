@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
 		# create empty array
 		array = []
 		#convert this to the day of the year
-		day = Time.current.in_time_zone.yday
+		day = Time.current.in_time_zone.yday 
 		# iterate over transactions
 		transactions.each do |t|
 			# push amounts into array if they are from today
@@ -90,6 +90,23 @@ class User < ActiveRecord::Base
 		sum = array.sum	
 		return sum
 	end
+
+	def yesterday_transaction_sum
+		# create empty array
+		array = []
+		#convert this to the day of the year
+		day = Time.current.in_time_zone.yday - 1
+		# iterate over transactions
+		transactions.each do |t|
+			# push amounts into array if they are from today
+			if day == t.created_at.yday
+				array << t.amount 
+			end	
+		end
+		sum = array.sum	
+		return sum
+	end
+
 
 	def total_savings
 		# find today as day of year

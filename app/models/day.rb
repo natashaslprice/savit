@@ -2,12 +2,13 @@ class Day < ActiveRecord::Base
 	belongs_to :user
 
 	def self.create_new_days
+
+		#find all users and for each one:
 		User.all.each do |u|
-			# make new day
-			 u.days.last
-			@day = Day.new({
+		#  create new key value pairs for that day for that user
+			@day = Days.new({
 				budget: u.calculate_daily_budget,
-				transactions_sum: u.daily_transactions_sum
+				transaction_sum: u.yesterday_transactions_sum.to_i
 				})
 			@day.save
 		end
