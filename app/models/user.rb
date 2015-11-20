@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
 		user.authenticate(password_param)
 	end
 
+
+
 	# calculate net budget
 	def calculate_net_budget
 		fixed_expenses = budget.rent_mortgage.to_i + budget.car.to_i + budget.public_transportation.to_i + budget.insurance.to_i + budget.utilities.to_i + budget.internet.to_i + budget.cell_phone.to_i + budget.gym.to_i + budget.charity_donations.to_i + budget.student_loan.to_i + budget.credit_card.to_i + budget.other_expenses.to_i
