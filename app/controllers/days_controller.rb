@@ -1,29 +1,29 @@
 class DaysController < ApplicationController
-  def new
-    @day = Day.new
-  end
+  # def new
+  #   @day = Day.new
+  # end
 
-  def create
-    @user = User.find(params[:id])
-    @day = Day.new(days_params)
-    if @day.save
-      user.days << @day
-      redirect_to @user
-    else 
+  # def create
+  #   @user = User.find(params[:id])
+  #   @day = Day.new(days_params)
+  #   if @day.save
+  #     user.days << @day
+  #     redirect_to @user
+  #   else 
       
-  end
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
-  private
-  def days_params
-    params.require(:day).permit(:budget, :transactions_sum)
-  end
+  # private
+  # def days_params
+  #   params.require(:day).permit(:budget, :transactions_sum)
+  # end
 end
