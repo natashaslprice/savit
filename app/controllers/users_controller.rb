@@ -45,6 +45,12 @@ class UsersController < ApplicationController
     @user = current_user
     # find budget for navbar
     @budget = Budget.find_by(user_id: current_user.id)
+    # find users transaction
+    @transactions = @user.transactions
+    
+    @category = params[:category]
+   
+ 
     # find users savings
     # @savings = @user.calculate_monthly_savings_goal.to_i
     # find users transactions
