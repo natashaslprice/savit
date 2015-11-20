@@ -6,7 +6,7 @@ class Day < ActiveRecord::Base
 		#find all users and for each one:
 		User.all.each do |u|
 		#  create new key value pairs for that day for that user
-			@day = Days.new({
+			@day = Day.new({
 				budget: u.calculate_daily_budget,
 				transaction_sum: u.yesterday_transactions_sum.to_i
 				})
