@@ -1,45 +1,74 @@
 <%= render "layouts/navbar" %>
 <div class="container">
 	<div class="row">
-    	<!-- users daily budget -->
-  		<div class="jumbotron text-center">
-  			<h3><%= @user.first_name %>, your budget for today is:</h3>
-  			<h1>$<%=@daily_budget%></h1>
-  		</div>
-  	</div> <!-- end of row div -->
-  	<hr>
-  	<!-- spending form -->
-  	<div class="row">
-    	<div class="col-sm-5 new-spending-form">
-      		<h4 class="text-center">Every time you buy something, enter it here:</h4>
-      		<br>
-      		<%= form_for @transaction do |f| %>
-        	<div class="input-group">
-          		<span class="input-group-addon">$</span>
-          		<%= f.text_field :amount, class: "form-control text-center", placeholder: "How much did you spend?" %>
-          		<span class="input-group-addon">.00</span>
-        	</div>
-        	<br>
-        	<%= f.text_field :tag_list, class: "form-control text-center", placeholder: "What category is your purchase in?" %>
-        	<br>
-        	<span class="pull-right"><%= f.submit class: "btn-success text-right" %></span>
-        	<br>
-        	<br>
-      		<% end %>
-    	</div> <!-- end of col div -->
-
-    	<div class="col-sm-5 col-sm-offset-2 todays-transactions">
-      		<h4 class="text-center">Today's Transactions</h4>
+		<h3 class="text-center">Today's spending limit: $<%=@daily_budget%></h3>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-sm-5 transactions-form">
+			<%= form_for @transaction do |f| %>
+		  	<div class="input-group">
+		    	<span class="input-group-addon">$</span>
+		    		<%= f.number_field :amount, class: "form-control text-center", placeholder: "How much did you spend?" %>
+		    	<span class="input-group-addon">.00</span>
+		  	</div>
+		  	<br>
+			<div class="row">
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Restaurants", name: "category" %>	
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Groceries", name: "category" %>	
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Transportation", name: "category" %>	
+				</div>		
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Entertainment", name: "category" %>	
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Coffee/Tea", name: "category" %>	
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Bars", name: "category" %>	
+				</div>		
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Household", name: "category" %>	
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Clothing", name: "category" %>	
+				</div>
+				<div class="col-xs-3 col-xs-offset-1">
+					<%= f.submit class: "btn-success", value: "Personal", name: "category" %>	
+				</div>		
+			</div>			
+			<% end %>
+		</div> <!-- end of col div -->
+		<div class="col-sm-5 col-sm-offset-2">
+			<h4 class="text-center">Today's Transactions</h4>
       		<br>
       		<ul class="list-group">
         		<% if @user.daily_transactions.any? %>
           			<% @user.daily_transactions.reverse.each do |t| %>  
             			<li class="list-group-item text-center">
-              				<div><span class="pull-left"><%=t.created_at.to_formatted_s(:time) %></span>$<%= t.amount %><span class="pull-right"><%= t.tag_list %></span></div> 
+              				<div>
+              				<span class="text-left col-xs-3"><%=t.created_at.to_formatted_s(:time) %></span>
+              				<span class="text-center col-xs-3">$<%= t.amount %></span>
+              				<span class="text-right col-xs-3"><%=t.category%></span></div>
+              				<span class="col-xs-2 col-xs-offset-1"><%= link_to transaction_path(t), method: :delete, class: 'btn-sm btn-success trash-btn text-right' do %>
+              					<i class="glyphicon glyphicon-trash"></i>
+							<% end %>
+							</span>
             			</li>
           			<% end %>
           		<% end %>
       		</ul>
-    	</div> <!-- end of col div -->
-  	</div> <!-- end of row div -->
+		</div>
+	</div>
 </div>

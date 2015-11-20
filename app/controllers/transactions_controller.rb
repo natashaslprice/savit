@@ -15,8 +15,10 @@ class TransactionsController < ApplicationController
   def create
     # find current user
     @user = current_user
-    # create new transaction
-    @transaction = Transaction.new(transaction_params)
+    # create new transaction with amount only
+    @transaction = Transaction.new(transaction_params) 
+    # push category into transaction
+    @transaction.category = params[:category]
     # if new transaction, save
     if @transaction.save
       #set transaction user_id to user id
@@ -44,12 +46,12 @@ class TransactionsController < ApplicationController
     transaction = Transaction.find(params[:id])
     # destroy post
     transaction.destroy
-    redirect_to @user
+    redirect_to new_transaction_path
   end
 
   private
 
   def transaction_params
-    params.require(:transaction).permit(:amount, :tag_list)
+    params.require(:transaction).permit(:amount, :category)
   end
 end
