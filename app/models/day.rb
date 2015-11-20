@@ -10,7 +10,10 @@ class Day < ActiveRecord::Base
 				budget: u.calculate_daily_budget,
 				transactions_sum: u.yesterday_transaction_sum.to_i
 				})
-			@day.save
+
+			if @day.save
+				@user.day << @day
+			end
 		end
 	end
 end
