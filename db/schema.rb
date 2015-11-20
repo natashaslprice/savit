@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20151119225433) do
   create_table "days", force: :cascade do |t|
     t.integer  "budget"
     t.integer  "transactions_sum"
+    t.integer  "user_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

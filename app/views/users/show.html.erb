@@ -1,28 +1,19 @@
 <%= render "layouts/navbar" %>
-<div class="page-header text-center">
-	<h1>Savings</h1>
-</div>
-<section class="text-center">
-	<h3>Your total savings since joining are:</h3>
-	<h1>$<%=@total_savings%></h1>
-</section>
-<hr>
-<section class="text-center">
-	<h3>Here's your daily budget performance over the last 10 days:</h3>
-	
+<div class="container">
 	<div class="row">
-		<!-- extra div to manually offset thumbnails below -->
-		<div class="col-xs-1"></div>
-		<% 10.times do |s| %>
-		<div class="col-xs-1">
-			<div class="thumbnail">
-				+
-			</div>
-		</div> 
-		<% end %>
-		<!-- extra div to manually offset thumbnails above, completing col of 12 -->
-		<div class="col-xs-1"></div>
+		<h3 class="text-center">Your personal dashboard:</h3>
 	</div>
-	
-</section>
-	
+	<hr>
+	<div class="row">
+		<div class="col-sm-6 savings-div">
+			<h4 class="text-center">You have saved <strong>$<%=@total_savings%></strong></h4>
+			<br>
+			<h4 class="text-center">Insert chart here</h4>
+		</div> <!-- end of col div -->
+		<div class="col-sm-6 history-div">
+			<h4 class="text-center">Your spending history</h4>
+      <br>
+      <h4 class="text-center">Insert chart here</h4>	
+		</div> <!-- end of col div -->
+	</div> <!-- end of row -->
+</div> <!-- end of container -->
