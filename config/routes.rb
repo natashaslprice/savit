@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get '/spending', to: 'users#spending', as: :spending
 
   # post for ajax call for dynamic table
-  post 'users/show/:category' => 'users#show'
+  post '/users/show', to: 'users#show'
 
 
 end

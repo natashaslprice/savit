@@ -1,6 +1,5 @@
 <%= render "layouts/navbar" %>
 <div class="container">
-	<%= @category %>
 	<div class="row">
 		<h3 class="text-center">Your personal dashboard:</h3>
 	</div>
@@ -13,6 +12,7 @@
 		</div> <!-- end of col div -->
 		<div class="col-sm-6 history-div">
 			<h4 class="text-center">Your spending history</h4>
+      		<h4 id="category"></h4>
       		<br>
       		<div>
 
@@ -26,15 +26,15 @@
       		  <div class="tab-content">
       		    <div role="tabpanel" class="tab-pane active" id="category-list">
 	      		    <select class="form-control">
-	      		      <option>Restaurant</option>
-	      		      <option>Groceries</option>
-	      		      <option>Transportation</option>
-	      		      <option>Entertainment</option>
-	      		      <option>Coffee/Tea</option>
-	      		      <option>Bars</option>
-	      		      <option>Household</option>
-	      		      <option>Clothing</option>
-	      		      <option>Personal</option>
+	      		      <option class="category">Restaurant</option>
+	      		      <option class="category">Groceries</option>
+	      		      <option class="category">Transportation</option>
+	      		      <option class="category">Entertainment</option>
+	      		      <option class="category">Coffee/Tea</option>
+	      		      <option class="category">Bars</option>
+	      		      <option class="category">Household</option>
+	      		      <option class="category">Clothing</option>
+	      		      <option class="category">Personal</option>
 	      		    </select>
       		    	<% @transactions.each do |t| %>
       		    		 
