@@ -11,6 +11,8 @@
 .glyphicon-trash {
 	color: #449d44;
 }
+.btn-block {
+}
 .trash-btn {
 	background-color: transparent;
 	padding-bottom: 25px;
@@ -18,3 +20,7 @@
 .trash-btn:hover {
 	background-color: transparent;
 }
+.input-group-addon {
+	border-radius: 0;
+}
+
