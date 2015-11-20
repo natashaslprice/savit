@@ -14,7 +14,7 @@ class BudgetsController < ApplicationController
       #set budget user_id to user id
       @user.budget = @budget
       # redirect to user profile
-      redirect_to @user
+      redirect_to '/today'
     else
       # show errors
       @budget_error = flash[:error] = @budget.errors.full_messages.join(', ')
