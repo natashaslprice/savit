@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  
+
   # all routes for users
-  resources :users 
+  resources :users do 
+    resources :days
+  end
   # sessions routes needs new, create, destroy
   resources :sessions, only: [:new, :create, :destroy]
   # budgets routes need new, create, edit, update, destroy
   resources :budgets, only: [:new, :create, :edit, :update, :destroy]
   # transactions routes need all
   resources :transactions
+
 
   # root route
   root 'users#index'
