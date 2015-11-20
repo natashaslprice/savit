@@ -107,36 +107,51 @@ class User < ActiveRecord::Base
 		return sum
 	end
 
-
 	def total_savings
-		# find today as day of year
-		time_now = Time.now.yday
-		# find day user created as day of year
-		user_created_at = created_at.yday
-		# find total number of days user has been active
-		total_user_days = (time_now - user_created_at) + 1
-		# find calculate_monthly_savings_goal 
-		daily_savings_goal = calculate_monthly_savings_goal / 30
-		# find total of monthly savings goal (total number of days user has been active * calculate_monthly_savings_goal)
-		total_savings_goal = total_user_days * daily_savings_goal
-		# find daily budget
-		daily_budget = calculate_net_budget / 30
-		# find total budget (daily_budget * total number of days user active minus 1)
-		total_budget = daily_budget * (total_user_days - 1)
-		# find all transactions
-		all_transactions = transactions.all
-		# iterate through transactions
-		all_transactions_array = []
-		all_transactions.each do |t|
-			# if transaction.created_at is less than today as day of year
-			if t.created_at.yday < time_now
-				# push into array
-				all_transactions_array << t.amount
-			end
+		# create an empty array
+		savings_array = []
+		# loop over all days
+		days.each do |day|
+			# daily savings is the difference between budget and total transactions
+			daily_savings = day.budget - day.transactions_sum
+			# push the daily savings into the array
+			savings_array << daily_savings
 		end
-		# find sum of array
-		total_transactions = all_transactions_array.sum
-		# total of monthly_savings_goal plus total budget minus sum of transactions array
-		return total_savings_goal + total_budget - total_transactions
+		# return the sum of each day's savings
+		return savings_array.sum
 	end
+
+
+
+	# def total_savings
+	# 	# find today as day of year
+	# 	time_now = Time.now.yday
+	# 	# find day user created as day of year
+	# 	user_created_at = created_at.yday
+	# 	# find total number of days user has been active
+	# 	total_user_days = (time_now - user_created_at) + 1
+	# 	# find calculate_monthly_savings_goal 
+	# 	daily_savings_goal = calculate_monthly_savings_goal / 30
+	# 	# find total of monthly savings goal (total number of days user has been active * calculate_monthly_savings_goal)
+	# 	total_savings_goal = total_user_days * daily_savings_goal
+	# 	# find daily budget
+	# 	daily_budget = calculate_net_budget / 30
+	# 	# find total budget (daily_budget * total number of days user active minus 1)
+	# 	total_budget = daily_budget * (total_user_days - 1)
+	# 	# find all transactions
+	# 	all_transactions = transactions.all
+	# 	# iterate through transactions
+	# 	all_transactions_array = []
+	# 	all_transactions.each do |t|
+	# 		# if transaction.created_at is less than today as day of year
+	# 		if t.created_at.yday < time_now
+	# 			# push into array
+	# 			all_transactions_array << t.amount
+	# 		end
+	# 	end
+	# 	# find sum of array
+	# 	total_transactions = all_transactions_array.sum
+	# 	# total of monthly_savings_goal plus total budget minus sum of transactions array
+	# 	return total_savings_goal + total_budget - total_transactions
+	# end
 end
