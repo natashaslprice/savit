@@ -121,6 +121,29 @@ class User < ActiveRecord::Base
 		return savings_array.sum
 	end
 
+	def savings_chart
+		savings_array = []
+	    # loop over all days
+	    days.reverse.each do |day|
+	      # daily savings is the difference between budget and total transactions
+	      daily_savings = day.budget - day.transactions_sum
+	      # push the daily savings into the array
+	      savings_array << daily_savings
+
+	    end
+	    return savings_array
+	end
+
+	def chart_days
+		days_array = []
+		# loop over all the days
+		days.each do |day|
+			day_of_week = day.created_at.in_time_zone.strftime("%A")
+			days_array << day_of_week
+		end
+		return days_array
+	end
+
 
 
 	# def total_savings

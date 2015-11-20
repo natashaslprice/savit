@@ -24,7 +24,7 @@ class BudgetsController < ApplicationController
   end
 
   def edit
-    user = current_user
+    @user = current_user
     @budget = Budget.find_by(user_id: current_user.id)
 
   end

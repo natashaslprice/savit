@@ -26,6 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'acts-as-taggable-on', '~> 3.4'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+# gem for charts
+gem 'chartkick', '~> 1.4', '>= 1.4.1'
+# gem for using group date with charts
+gem 'groupdate'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
