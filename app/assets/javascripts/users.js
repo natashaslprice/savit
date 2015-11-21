@@ -11,19 +11,24 @@ $(document).ready(function () {
 		  type: 'post',
 		  url: "/users/show" 
 		}).success(function(data){
-			console.log(data);
-			$("#category").text(sumFunction(data));
+			// console.log(data);
+			// clear lists
+			$(".row-to-empty").empty();
+			// find the key and value pairs
+			for(var i in data) {
+				// check i != ""
+				if (i !== "") {
+				  // append to table
+					$(".table").append(htmlString(i, data[i]));
+				}
+			}
 		});
 	});
 });
 
-// sums the transactions for a single category
-function sumFunction(array) {
-	var total = 0;
-	for (var i = 0; i < array.length; i++) {
-		total = total + array[i].amount;
-		console.log(total);
-	}
-	return total;
+function htmlString(key, value){
+	return '<tr class="row-to-empty">' + 
+				 '<td>' + key + '</td>' + 
+				 '<td>$' + value + '</td>' +
+				 '</tr>';
 }
-

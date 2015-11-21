@@ -47,50 +47,50 @@ class UsersController < ApplicationController
     @budget = Budget.find_by(user_id: current_user.id)
     # find users transaction
     @transactions = @user.transactions
-    
+
     if params[:category]
       @category = params[:category].capitalize
       # change category trans variable so groups by date
       @category_transactions = @user.transactions.where(category: @category).order(:created_at).reverse_order
-      @category_transactions_by_month = @category_transactions.group_by { |x| x.created_at.beginning_of_month }
-      # output: hash with month=>array of transactions in reverse order
-      # loop through cat trans and say if grouped by month is in last 6 months, sum by group month
+      @category_transactions_by_month = @category_transactions.group_by { |x| get_month(x.created_at.beginning_of_month.month) }
+      # output: hash with month(as word)=>array of transactions in reverse order
+      
+      # find names of last 6 months
       i = 0
-      j = 0
-      @data_for_js = {}
-      @month
-      6.times do |i, j|
-        @monthly_sum = 0
-        @month_array = @category_transactions_by_month.values[i]
-        if @month_array != nil
-          @month_array.each do |a|
-            @monthly_sum = @monthly_sum + a.amount
-          end
-        end
+      @month_array = []
+      6.times do |i|
+        @month_array << @category_transactions_by_month.keys[i]
         i += 1
       end
-        # put key value pairs into hash
-        @month = (Time.now.month).strftime("%B")
-        (6.months.ago.to_date.month..Date.today.month).each do |m|
-          @date_setup = "2015-" + (m.to_s) + "-10 19:04:07.345677"
-          @month = @date_setup.strftime()
-          puts @month
+
+      # find sum of transaction amounts in each of last 6 months
+      i = 0
+      @sum_array = []
+      6.times do |i|
+        month_transactions = 0
+        if @category_transactions_by_month.values[i] != nil
+          @category_transactions_by_month.values[i].each do |t|
+            month_transactions = month_transactions + t.amount
+          end
         end
-
-      # hash.to_json
-
-
-      # @total = @category_transactions.inject { |t, sum| sum += t.amount }      
-      # data = {
-      #   total: @total,
-      #   by_month: @transactions_by_month
-      # } 
-      # data.to_json
-      respond_to do |format|
-        format.json { render :json => @category_transactions.to_json }
+        @sum_array << month_transactions
+        i += 1
       end
-      # render :show
-    end
+
+      array = []
+      @month_array.zip(@sum_array).each do |month, sum|
+        array << {"#{month}": "#{sum}"}
+      end
+      @hash_for_js = array.reduce &:merge
+
+      puts "final"
+      p @hash_for_js
+
+      respond_to do |format|
+        format.json { render :json => @hash_for_js.to_json }
+      end
+    end 
+    # end of category function
  
     # find users savings
     # @savings = @user.calculate_monthly_savings_goal.to_i
@@ -123,8 +123,11 @@ class UsersController < ApplicationController
     @total_savings = @user.total_savings
   end
 
-
-	private
+  def get_month(m)
+    Date::MONTHNAMES[m]
+  end
+	
+  private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
