@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 
       array = []
       @month_array.zip(@sum_array).each do |month, sum|
-        array << {"#{month}": "#{sum}"}
+        array << {"#{month}" => "#{sum}"}
       end
       @hash_for_js = array.reduce &:merge
 
