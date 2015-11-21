@@ -131,16 +131,19 @@ class User < ActiveRecord::Base
 	      savings_array << daily_savings
 
 	    end
+
 	    return savings_array
 	end
 
 	def chart_days
 		days_array = []
 		# loop over all the days
-		days.each do |day|
-			day_of_week = day.created_at.in_time_zone.strftime("%A")
+		days.reverse.each do |day|
+			
+			day_of_week = (day.created_at.in_time_zone +1).strftime("%m-%d")
 			days_array << day_of_week
 		end
+		
 		return days_array
 	end
 
