@@ -48,10 +48,57 @@ class UsersController < ApplicationController
     @user = current_user
     # find budget for navbar
     @budget = Budget.find_by(user_id: current_user.id)
-    # find day 
+    # find users transaction
+    @transactions = @user.transactions
+
+    # Required for table on dashboard
+    if params[:category]
+      @category = params[:category].capitalize
+      # change category trans variable so groups by date
+      @category_transactions = @user.transactions.where(category: @category).order(:created_at).reverse_order
+      @category_transactions_by_month = @category_transactions.group_by { |x| get_month(x.created_at.beginning_of_month.month) }
+      # output: hash with month(as word)=>array of transactions in reverse order
+      
+      # find names of last 6 months
+      i = 0
+      @month_array = []
+      6.times do |i|
+        @month_array << @category_transactions_by_month.keys[i]
+        i += 1
+      end
+
+      # find sum of transaction amounts in each of last 6 months
+      i = 0
+      @sum_array = []
+      6.times do |i|
+        month_transactions = 0
+        if @category_transactions_by_month.values[i] != nil
+          @category_transactions_by_month.values[i].each do |t|
+            month_transactions = month_transactions + t.amount
+          end
+        end
+        @sum_array << month_transactions
+        i += 1
+      end
+
+      array = []
+      @month_array.zip(@sum_array).each do |month, sum|
+        array << {"#{month}": "#{sum}"}
+      end
+      @hash_for_js = array.reduce &:merge
+
+      puts "final"
+      p @hash_for_js
+
+      respond_to do |format|
+        format.json { render :json => @hash_for_js.to_json }
+      end
+    end 
+    # end of required 
+ 
     @day = Day.find_by(user_id: current_user.id)
 
-   
+
     # find users savings
     # @savings = @user.calculate_monthly_savings_goal.to_i
     # find users transactions
@@ -83,8 +130,11 @@ class UsersController < ApplicationController
     @total_savings = @user.total_savings
   end
 
-
-	private
+  def get_month(m)
+    Date::MONTHNAMES[m]
+  end
+	
+  private
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
