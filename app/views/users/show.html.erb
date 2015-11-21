@@ -15,8 +15,63 @@
 		</div> <!-- end of col div -->
 		<div class="col-sm-6 history-div">
 			<h4 class="text-center">Your spending history</h4>
-      <br>
-      <h4 class="text-center">Insert chart here</h4>	
+      		<br>
+      		<div>
+
+      		  <!-- Nav tabs -->
+      		  <ul class="nav nav-tabs" role="tablist">
+      		    <li role="presentation" class="active"><a href="#category-list" aria-controls="category-list" role="tab" data-toggle="tab">Filter by category</a></li>
+      		    <li role="presentation"><a href="#month-list" aria-controls="month-list" role="tab" data-toggle="tab">Filter by month</a></li>
+      		  </ul>
+				
+      		  <!-- Tab panes -->
+      		  <div class="tab-content">
+      		    <div role="tabpanel" class="tab-pane active" id="category-list">
+	      		    <select class="form-control">
+	      		      <option class="category">Choose Category</option>
+	      		      <option class="category">Restaurant</option>
+	      		      <option class="category">Groceries</option>
+	      		      <option class="category">Transportation</option>
+	      		      <option class="category">Entertainment</option>
+	      		      <option class="category">Coffee/Tea</option>
+	      		      <option class="category">Bars</option>
+	      		      <option class="category">Household</option>
+	      		      <option class="category">Clothing</option>
+	      		      <option class="category">Personal</option>
+	      		    </select>
+	      		    <br>
+      		    	<div class="row">
+      		    		<table class="table">
+      		    			<tr>
+    		    			    <td><strong>Category</strong></td>
+    		    			    <td><strong>$</strong></td>
+    		    			  </tr>
+      		    		</table>
+      		    	</div>
+      		    </div>
+      		    <div role="tabpanel" class="tab-pane" id="month-list">
+      		    	<select class="form-control">
+	      		      <option>Choose Month</option>
+	      		      <option>January</option>
+	      		      <option>February</option>
+	      		      <option>March</option>
+	      		      <option>April</option>
+	      		      <option>May</option>
+	      		      <option>June</option>
+	      		      <option>July</option>
+	      		      <option>August</option>
+	      		      <option>September</option>
+	      		      <option>October</option>
+	      		      <option>November</option>
+	      		      <option>December</option>
+	      		    </select>
+	      		    <% @transactions.each do |t| %>
+      		    
+      		    	<% end %>
+      		    </div>
+      		  </div>
+      		</div>
+
 		</div> <!-- end of col div -->
 	</div> <!-- end of row -->
 </div> <!-- end of container -->

@@ -17,10 +17,10 @@ class TransactionsController < ApplicationController
     @user = current_user
     # create new transaction with amount only
     @transaction = Transaction.new(transaction_params) 
-    # push category into transaction
-    @transaction.category = params[:category]
     # if new transaction, save
     if @transaction.save
+    # push category into transaction
+    @transaction.category = params[:category]
       #set transaction user_id to user id
       @user.transactions << @transaction
       # redirect to user profile
