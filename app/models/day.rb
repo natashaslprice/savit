@@ -4,13 +4,16 @@ class Day < ActiveRecord::Base
 	def self.create_new_days
 
 		#find all users and for each one:
-		User.all.each do |u|
+		User.all.each do |user|
 		#  create new key value pairs for that day for that user
-			@day = Days.new({
-				budget: u.calculate_daily_budget,
-				transaction_sum: u.yesterday_transactions_sum.to_i
+			@day = Day.new({
+				budget: user.calculate_daily_budget,
+				transactions_sum: user.yesterday_transaction_sum.to_i
 				})
-			@day.save
+
+			if @day.save
+				user.days << @day
+			end
 		end
 	end
 end

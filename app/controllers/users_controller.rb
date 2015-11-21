@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
   def index
+    if current_user
+      redirect_to "/today"
+    end
 	end
 	
 	def new
@@ -48,6 +51,7 @@ class UsersController < ApplicationController
     # find users transaction
     @transactions = @user.transactions
 
+    # Required for table on dashboard
     if params[:category]
       @category = params[:category].capitalize
       # change category trans variable so groups by date
@@ -90,8 +94,10 @@ class UsersController < ApplicationController
         format.json { render :json => @hash_for_js.to_json }
       end
     end 
-    # end of category function
+    # end of required 
  
+    @day = Day.find_by(user_id: current_user.id)
+
     # find users savings
     # @savings = @user.calculate_monthly_savings_goal.to_i
     # find users transactions

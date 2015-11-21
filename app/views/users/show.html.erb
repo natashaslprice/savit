@@ -6,9 +6,12 @@
 	<hr>
 	<div class="row">
 		<div class="col-sm-6 savings-div">
-			<h4 class="text-center">You have saved <strong>$<%=@total_savings%></strong></h4>
+			<h4 class="text-center">You have saved <strong>$<%= @user.total_savings %></strong></h4>
 			<br>
 			<h4 class="text-center">Insert chart here</h4>
+
+			
+			<%= column_chart({@user.chart_days[0] => @user.savings_chart[0], @user.chart_days[1] => @user.savings_chart[1], @user.chart_days[2] => @user.savings_chart[2]}) %>
 		</div> <!-- end of col div -->
 		<div class="col-sm-6 history-div">
 			<h4 class="text-center">Your spending history</h4>

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # transactions routes need all
   resources :transactions
 
+  resources :charts, only: [:new]
+
 
   # root route
   root 'users#index'
