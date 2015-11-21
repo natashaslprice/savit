@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     # find day 
     @day = Day.find_by(user_id: current_user.id)
 
-    
+   
     # find users savings
     # @savings = @user.calculate_monthly_savings_goal.to_i
     # find users transactions
