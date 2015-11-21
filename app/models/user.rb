@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
 		transactions.each do |t|
 			# push amounts into array if they are from today
 			if day == t.created_at.yday
-				array << t.amount 
+				array << t.amount.to_i 
 			end	
 		end
 		sum = array.sum	
