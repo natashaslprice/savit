@@ -140,7 +140,7 @@ class User < ActiveRecord::Base
 		# loop over all the days
 		days.reverse.each do |day|
 			
-			day_of_week = (day.created_at.in_time_zone +1).strftime("%m-%d")
+			day_of_week = day.created_at.in_time_zone.strftime("%m-%d")
 			days_array << day_of_week
 		end
 		
