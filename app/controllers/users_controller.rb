@@ -52,6 +52,7 @@ class UsersController < ApplicationController
     @transactions = @user.transactions
 
     # Required for table on dashboard
+    #Filter by category
     if params[:category]
       @category = params[:category].capitalize
       # change category trans variable so groups by date
@@ -94,8 +95,54 @@ class UsersController < ApplicationController
         format.json { render :json => @hash_for_js.to_json }
       end
     end 
-    # end of required 
- 
+
+    #Filter by month
+    if params[:month]
+      @month = params[:month].capitalize
+      # find transactions for month selected
+      transactions_array = []
+      @month_transactions = @user.transactions.each do |t| 
+        if get_month(t.created_at.month) == @month
+          transactions_array << t
+        end
+      end    
+
+      # get active categories for selected month
+      all_categories = []
+      transactions_array.each do |t|
+        all_categories << t.category
+      end
+      active_categories = all_categories.uniq
+
+      # add the amounts for the total of each category
+      category_amount_totals = []
+      active_categories.each do |c|
+        cat = 0
+        transactions_array.each do |t|
+          if c == t.category 
+            cat = cat + t.amount
+          end
+        end
+        category_amount_totals << cat
+      end
+
+      array = []
+      active_categories.zip(category_amount_totals).each do |category, sum|
+        array << {"#{category}" => "#{sum}"}
+      end
+      @hash_for_js = array.reduce &:merge
+
+      puts "final"
+      p @hash_for_js
+
+      respond_to do |format|
+        format.json { render :json => @hash_for_js.to_json }
+      end
+      
+    end
+    #end of required for tables
+
+    #day for savings and charts
     @day = Day.find_by(user_id: current_user.id)
 
 
@@ -133,7 +180,7 @@ class UsersController < ApplicationController
   def get_month(m)
     Date::MONTHNAMES[m]
   end
-	
+
   private
 
   def user_params
