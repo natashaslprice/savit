@@ -5,7 +5,7 @@
 	</div>
 	<hr>
 	<div class="row">
-		<div class="col-sm-6 transactions-form">
+		<div class="col-md-6 transactions-form">
 			<%= form_for @transaction do |f| %>
 		  	<div class="input-group">
 		    	<span class="input-group-addon">$</span>
@@ -15,42 +15,42 @@
 		  	<br>
 			<div class="row text-center">
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Restaurants", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Restaurants", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Groceries", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Groceries", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Transportation", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Transport", name: "category" %>	
 				</div>		
 			</div>
 			<br>
 			<div class="row text-center">
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Entertainment", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Entertainment", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Coffee", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Coffee", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Bars", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Bars", name: "category" %>	
 				</div>		
 			</div>
 			<br>
 			<div class="row text-center">
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Household", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Household", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Clothing", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Clothing", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Personal", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Personal", name: "category" %>	
 				</div>		
 			</div>			
 			<% end %>
 		</div> <!-- end of col div -->
-		<div class="col-sm-6">
+		<div class="col-md-6">
 			<h4 class="text-center">Today's Transactions</h4>
       		<br>
       		<ul class="list-group">

@@ -40,7 +40,7 @@
 	      		      <option class="category">Choose Category</option>
 	      		      <option class="category">Restaurants</option>
 	      		      <option class="category">Groceries</option>
-	      		      <option class="category">Transportation</option>
+	      		      <option class="category">Transport</option>
 	      		      <option class="category">Entertainment</option>
 	      		      <option class="category">Coffee</option>
 	      		      <option class="category">Bars</option>
@@ -50,9 +50,9 @@
 	      		    </select>
 	      		    <br>
       		    	<div class="row">
-      		    		<table class="table">
+      		    		<table class="category-table table">
       		    			<tr>
-    		    			    <td><strong>Category</strong></td>
+    		    			    <td><strong>Month</strong></td>
     		    			    <td><strong>Total Amount Spent</strong></td>
     		    			  </tr>
       		    		</table>
@@ -74,9 +74,16 @@
 	      		      <option>November</option>
 	      		      <option>December</option>
 	      		    </select>
-	      		    <% @transactions.each do |t| %>
-      		    
-      		    	<% end %>
+	      		    <br>
+	      		    <div class="row">
+      		    		<table class="month-table table">
+      		    			<tr>
+    		    			    <td><strong>Categories</strong></td>
+    		    			    <td><strong>Total Amount Spent</strong></td>
+    		    			  </tr>
+      		    		</table>
+      		    	</div>
+	      		   
       		    </div>
       		  </div>
       		</div>
