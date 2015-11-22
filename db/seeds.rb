@@ -327,5 +327,5 @@ Transaction.create([
 		created_at: "2015-11-21 19:00:30.11476",
 		category: "Coffee"		
 	}])
-end
+
 
