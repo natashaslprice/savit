@@ -1,4 +1,4 @@
-console.log("Sanity Check!");
+console.log("User.js Sanity Check!");
 
 $(document).ready(function () {
 	$("#category-list").change(function (e) {
