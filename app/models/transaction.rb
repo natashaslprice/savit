@@ -6,4 +6,9 @@ class Transaction < ActiveRecord::Base
 
 	validates :amount, :numericality => {:only_integer => true}, allow_nil: false
 
+
+
+	
+
+
 end
