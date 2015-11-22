@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
 		transactions.each do |t|
 			# push amounts into array if they are from today
 			if day == t.created_at.yday
-				array << t.amount 
+				array << t.amount.to_i
 			end	
 		end
 		sum = array.sum	
@@ -118,7 +118,7 @@ class User < ActiveRecord::Base
 			savings_array << daily_savings
 		end
 		# return the sum of each day's savings
-		return savings_array.sum
+		return savings_array.sum.to_i
 	end
 
 	def savings_chart
@@ -132,7 +132,7 @@ class User < ActiveRecord::Base
 
 	    end
 
-	    return savings_array
+	    return savings_array	
 	end
 
 	def chart_days
