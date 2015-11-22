@@ -9,43 +9,43 @@
 			<%= form_for @transaction do |f| %>
 		  	<div class="input-group">
 		    	<span class="input-group-addon">$</span>
-		    		<%= f.number_field :amount, :autofocus=>true,  class: "form-control text-center", placeholder: "How much did you spend?" %>
+		    		<%= f.number_field :amount, :autofocus=>true, id:"transaction-input", class: "form-control text-center", placeholder: "How much did you spend?" %>
 		    	<span class="input-group-addon">.00</span>
 		  	</div>
 		  	<br>
 			<div class="row text-center">
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Restaurants", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Restaurants", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Groceries", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Groceries", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Transportation", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Transportation", name: "category" %>	
 				</div>		
 			</div>
 			<br>
 			<div class="row text-center">
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Entertainment", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Entertainment", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Coffee/Tea", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Coffee/Tea", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Bars", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Bars", name: "category" %>	
 				</div>		
 			</div>
 			<br>
 			<div class="row text-center">
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Household", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Household", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Clothing", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Clothing", name: "category" %>	
 				</div>
 				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block", value: "Personal", name: "category" %>	
+					<%= f.submit class: "btn-success btn btn-block category-btn", disabled:"disabled", value: "Personal", name: "category" %>	
 				</div>		
 			</div>			
 			<% end %>

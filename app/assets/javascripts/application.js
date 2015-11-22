@@ -15,5 +15,6 @@
 //= require bootstrap-sprockets
 
 //= require budgets.js
+
 //= require_tree .
 
