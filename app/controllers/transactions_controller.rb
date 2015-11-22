@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
     @user = current_user
     # find daily budget
     # @daily_budget = @user.calculate_daily_budget.to_i
+    
   end
 
   def create
