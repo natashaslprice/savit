@@ -11,8 +11,6 @@
 .glyphicon-trash {
 	color: #449d44;
 }
-.btn-block {
-}
 .trash-btn {
 	background-color: transparent;
 	padding-bottom: 25px;
@@ -23,4 +21,28 @@
 .input-group-addon {
 	border-radius: 0;
 }
-
+@media (max-width: 1200px) {
+	.category-btn {
+		font-size: 12px;
+	}
+}
+@media (max-width: 990px) {
+	.category-btn {
+		font-size: 8px;
+	}
+}
+@media (max-width: 770px) {
+	.category-btn {
+		font-size: 12px;
+	}
+}
+@media (max-width: 470px) {
+	.category-btn {
+		font-size: 9px;
+	}
+}
+@media (max-width: 350px) {
+	.category-btn {
+		font-size: 6px;
+	}
+}
