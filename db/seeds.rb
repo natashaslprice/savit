@@ -172,7 +172,7 @@ Transaction.create([
 		created_at: "2015-11-21 20:32:42.486377",
 		category: "Restaurants"
 	},
-	{ amount: 15,
+	{ amount: 165,
 		user_id: 8,
 		created_at: "2015-11-21 20:32:42.486377",
 		category: "Groceries"
@@ -322,7 +322,7 @@ Transaction.create([
 		created_at: "2015-11-21 19:00:30.11476",
 		category: "Entertainment"	
 	},
-	{ amount: 165,
+	{ amount: 15,
 		user_id: 8,
 		created_at: "2015-11-21 19:00:30.11476",
 		category: "Coffee"		
