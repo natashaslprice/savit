@@ -1,4 +1,11 @@
 <%= render "layouts/navbar" %>
+<!-- Money Image Flash Alert -->
+<div class="alert alert-success">
+  <div id="money-image">
+  	<%= success %>
+  </div>
+</div>
+<!-- end of flash -->
 <div class="container">
 	<div class="row">
 		<h3 class="text-center">Today's spending limit: $<%=@user.calculate_daily_budget.to_i%></h3>
@@ -6,7 +13,7 @@
 	<hr>
 	<div class="row">
 		<div class="col-md-6 transactions-form">
-			<%= form_for @transaction do |f| %>
+			<%= form_for @transaction, html: {id: "new-trans-form"} do |f| %>
 		  	<div class="input-group">
 		    	<span class="input-group-addon">$</span>
 		    		<%= f.number_field :amount, :autofocus=>true, id:"transaction-input", class: "form-control text-center", placeholder: "How much did you spend?" %>

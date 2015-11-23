@@ -24,7 +24,7 @@ class TransactionsController < ApplicationController
       #set transaction user_id to user id
       @user.transactions << @transaction
       # redirect to user profile
-      redirect_to '/today'
+      redirect_to '/today', success: "message"
     else
       # show errors
       @transaction_error = flash[:error] = @transaction.errors.full_messages.join(', ')
