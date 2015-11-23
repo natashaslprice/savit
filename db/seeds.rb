@@ -139,27 +139,27 @@ Day.create([
 		created_at: "2015-11-17 19:00:30.11476"
 	},
 	{ budget: 100,
-		transactions_sum: 145,
+		transactions_sum: 126,
 		user_id: 1,
 		created_at: "2015-11-18 19:00:30.11476"
 	},
 	{ budget: 100,
-		transactions_sum: 150,
+		transactions_sum: 79,
 		user_id: 1,
 		created_at: "2015-11-19 19:00:30.11476"
 	},
 	{ budget: 100,
-		transactions_sum: 155,
+		transactions_sum: 105,
 		user_id: 1,
 		created_at: "2015-11-20 19:00:30.11476"
 	},
 	{ budget: 100,
-		transactions_sum: 160,
+		transactions_sum: 82,
 		user_id: 1,
 		created_at: "2015-11-21 19:00:30.11476"
 	},
 	{ budget: 100,
-		transactions_sum: 165,
+		transactions_sum: 45,
 		user_id: 1,
 		created_at: "2015-11-22 19:00:30.11476"
 	}])
@@ -179,7 +179,7 @@ Transaction.create([
 	{ amount: 20,
 		user_id: 1,
 		created_at: "2015-10-24 19:00:30.11476",
-		category: "Transportation"	
+		category: "Transport"	
 	},
 	{ amount: 25,
 		user_id: 1,
@@ -224,7 +224,7 @@ Transaction.create([
 	{ amount: 65,
 		user_id: 1,
 		created_at: "2015-11-02 19:00:30.11476",
-		category: "Transportation"	
+		category: "Transport"	
 	},
 	{ amount: 70,
 		user_id: 1,
@@ -269,7 +269,7 @@ Transaction.create([
 	{ amount: 110,
 		user_id: 1,
 		created_at: "2015-11-11 19:00:30.11476",
-		category: "Transportation"	
+		category: "Transport"	
 	},
 	{ amount: 115,
 		user_id: 1,
@@ -301,30 +301,93 @@ Transaction.create([
 		created_at: "2015-11-17 19:00:30.11476",
 		category: "Personal"	
 	},
-	{ amount: 145,
+	{ amount: 85,
+		user_id: 1,
+		created_at: "2015-11-18 19:00:30.11476",
+		category: "Clothing"	
+	},
+	{ amount: 35,
+		user_id: 1,
+		created_at: "2015-11-18 19:00:30.11476",
+		category: "Household"	
+	},
+	{ amount: 6,
 		user_id: 1,
 		created_at: "2015-11-18 19:00:30.11476",
 		category: "Restaurants"	
 	},
-	{ amount: 150,
+	{ amount: 21,
+		user_id: 1,
+		created_at: "2015-11-19 19:00:30.11476",
+		category: "Household"	
+	},
+	{ amount: 11,
+		user_id: 1,
+		created_at: "2015-11-19 19:00:30.11476",
+		category: "Restaurants"	
+	},
+	{ amount: 24,
+		user_id: 1,
+		created_at: "2015-11-19 19:00:30.11476",
+		category: "Bars"	
+	},
+	{ amount: 12,
+		user_id: 1,
+		created_at: "2015-11-19 19:00:30.11476",
+		category: "Coffee"	
+	},
+	{ amount: 11,
 		user_id: 1,
 		created_at: "2015-11-19 19:00:30.11476",
 		category: "Groceries"	
 	},
-	{ amount: 155,
+	{ amount: 70,
 		user_id: 1,
 		created_at: "2015-11-20 19:00:30.11476",
-		category: "Transportation"	
+		category: "Clothing"	
 	},
-	{ amount: 160,
+	{ amount: 16,
+		user_id: 1,
+		created_at: "2015-11-20 19:00:30.11476",
+		category: "Household"	
+	},
+	{ amount: 19,
+		user_id: 1,
+		created_at: "2015-11-20 19:00:30.11476",
+		category: "Personal"	
+	},
+	{ amount: 35,
 		user_id: 1,
 		created_at: "2015-11-21 19:00:30.11476",
-		category: "Entertainment"	
+		category: "Groceries"	
 	},
-	{ amount: 165,
+	{ amount: 20,
 		user_id: 1,
-		created_at: "2015-11-22 19:00:30.11476",
+		created_at: "2015-11-21 19:00:30.11476",
+		category: "Transport"	
+	},
+	{ amount: 9,
+		user_id: 1,
+		created_at: "2015-11-21 19:00:30.11476",
+		category: "Bars"	
+	},
+	{ amount: 18,
+		user_id: 1,
+		created_at: "2015-11-21 19:00:30.11476",
+		category: "Restaurants"	
+	},
+	{ amount: 6,
+		user_id: 1,
+		created_at: "2015-11-22 08:25:30.11476",
 		category: "Coffee"		
+	}, 
+	{ amount: 27,
+		user_id: 1,
+		created_at: "2015-11-22 12:39:30.11476",
+		category: "Restaurants"		
+	}, 
+	{ amount: 12,
+		user_id: 1,
+		created_at: "2015-11-22 15:50:30.11476",
+		category: "Entertainment"		
 	}])
-
-
