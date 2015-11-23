@@ -2,12 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-img {
-	max-width: 100px;
+
+
+.today-limit {
+	padding-top: 50px;
 }
 
 .transactions-form {
 	margin-bottom: 40px;
+	margin-top: 40px;
+}
+.spending-field {
+	margin-bottom: 20px;
 }
 .list-group-item {
 	padding-bottom: 25px;
@@ -25,24 +31,22 @@ img {
 .input-group-addon {
 	border-radius: 0;
 }
+.category-btn {
+	padding: 35px 12px 35px 12px;
+	font-weight: bold;
+	border-radius: 5;
+}
+.cat-btn-div{
+	padding: 5px !important;
+}
 @media (max-width: 1200px) {
-	.category-btn {
-		font-size: 12px;
-	}
-}
-@media (max-width: 990px) {
-	.category-btn {
-		font-size: 8px;
-	}
-}
-@media (max-width: 770px) {
 	.category-btn {
 		font-size: 12px;
 	}
 }
 @media (max-width: 470px) {
 	.category-btn {
-		font-size: 9px;
+		font-size: 9px; 
 	}
 }
 @media (max-width: 350px) {

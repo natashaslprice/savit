@@ -20,8 +20,9 @@ $(document).ready(function () {
 				if (i !== "") {
 				  // append to table
 					$(".category-table").append(htmlString(i, data[i]));
-					$('#pop-up').modal('show');
-				}
+
+				} 
+
 			}
 		});
 	});
@@ -45,7 +46,7 @@ $(document).ready(function () {
 				if (i !== "") {
 				  // append to table
 					$(".month-table").append(htmlString(i, data[i]));
-				}
+				} 
 			}
 		});
 	});

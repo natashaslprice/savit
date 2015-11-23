@@ -2,50 +2,52 @@
 
 <div class="container">
 	<div class="row">
-		<h3 class="text-center">Today's spending limit: $<%=@user.calculate_daily_budget.to_i%></h3>
+		<div class="today-limit">
+			<h3 class="text-center">Today's spending limit: $<%=@user.calculate_daily_budget.to_i%></h3>
+		</div>
 	</div>
 	<hr>
 	<div class="row">
 		<div class="col-md-6 transactions-form">
 			<%= form_for @transaction do |f| %>
-		  	<div class="input-group">
+		  	<div class="input-group spending-field">
 		    	<span class="input-group-addon">$</span>
 		    		<%= f.number_field :amount, :autofocus=>true, id:"transaction-input", class: "form-control text-center", placeholder: "How much did you spend?" %>
 		    	<span class="input-group-addon">.00</span>
 		  	</div>
-		  	<br>
+
 			<div class="row text-center">
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Restaurants", name: "category" %>	
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Groceries", name: "category" %>	
 				</div>
-				<div class="col-xs-4">
-					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Transport", name: "category" %>	
+				<div class="col-xs-4 cat-btn-div">
+					<%= f.submit class: "btn-success btn btn-block category-btn ", value: "Transport", name: "category" %>	
 				</div>		
 			</div>
-			<br>
+		
 			<div class="row text-center">
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Entertainment", name: "category" %>	
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Coffee", name: "category" %>	
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Bars", name: "category" %>	
 				</div>		
 			</div>
-			<br>
+		
 			<div class="row text-center">
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Household", name: "category" %>	
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Clothing", name: "category" %>	
 				</div>
-				<div class="col-xs-4">
+				<div class="col-xs-4 cat-btn-div">
 					<%= f.submit class: "btn-success btn btn-block category-btn", value: "Personal", name: "category" %>	
 				</div>		
 			</div>			
@@ -60,21 +62,26 @@
 		<!-- end of flash -->
 		<div class="col-md-6">
 			<h4 class="text-center">Today's Transactions</h4>
+			<% if @user.daily_transactions[0] == nil %>
+				<br>
+				<h5 class="text-center">You've spent no money today!</h5>
+			<% end %> 
       		<br>
       		<ul class="list-group">
       			<!-- transactions rendering loop -->
         		<% if @user.daily_transactions.any? %>
           			<% @user.daily_transactions.reverse.each do |t| %>  
             			<li class="list-group-item text-center">
-              				<div>
 
-              				
-              				<!-- date -->
-              				<span class="text-left col-xs-3"><strong><%=t.category%></strong></span>
-              				<!-- amount -->
-              				<span class="text-center col-xs-3">$<%= t.amount %></span>
-              				<!-- category -->
-              				<span class="text-right col-xs-3"><%=t.created_at.to_formatted_s(:time) %></span></div>
+              				<div>
+	              				<!-- date -->
+	              				<span class="text-left col-xs-3"><%=t.created_at.to_formatted_s(:time) %></span>
+	              				<!-- amount -->
+	              				<span class="text-center col-xs-3">$<%= t.amount %></span>
+	              				<!-- category -->
+	              				<span class="text-right col-xs-3"><%=t.category%></span>
+              				</div>
+
               				<!-- delete button for transactions -->
               				<span class="col-xs-2 col-xs-offset-1"><%= link_to transaction_path(t), method: :delete, class: 'btn-sm btn-success trash-btn text-right' do %>
               					<i class="glyphicon glyphicon-trash"></i>

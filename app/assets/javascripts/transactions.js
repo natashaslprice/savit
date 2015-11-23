@@ -1,6 +1,7 @@
-console.log("transactions.js working!");
+// console.log("transactions.js working!");
 
-$(document).ready(function () {
+
+// $(document).ready(function () {
 	// $(document).on('click', '.category-btn', function(e) {
 	// 	console.log("button click");
 
@@ -17,4 +18,16 @@ $(document).ready(function () {
 	// 	   $('#money-image').remove();
 	// 	 }, 5000);
 	// // });	
-});
+// });
+
+// $(document).ready(function () {
+// 	$('#transaction-input').change(function() {
+// 		console.log("click worked");
+// 		if ($('#transaction-input').val() > 0) {
+// 			console.log("value added");
+// 			$('.category-btn').prop("disabled", false);
+// 		}
+
+// 	});
+// });
+
