@@ -8,10 +8,13 @@
       <% if @budget_error %>
       <div class="alert alert-info text-center alert-danger"><%= flash[:error] %></div>
       <% end %>
-      <p>Help us understand your monthly income and fixed expenses.</p>
+    
+
+
       <div id="new-budget-form">
         <%= form_for @budget do |f| %>
-        <%= f.label :net_wages, value: "How much do you earn each month after taxes?" %>
+        <%= f.label :net_wages, value: "How much do you earn each month after taxes?"  %>
+        <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="net_wages" data-content="somethings" aria-hidden="true"></a> 
         <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :net_wages, class: "form-control new-budget-input", placeholder: @budget.net_wages.to_i,  autofocus: true %>
@@ -19,6 +22,7 @@
        </div>
        <br>
        <%= f.label :rent_mortgage, value: "What is your rent or mortgage payment each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="rent_mortgage" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :rent_mortgage, class: "form-control new-budget-input", placeholder: @budget.rent_mortgage.to_i %>
@@ -26,6 +30,7 @@
        </div>
        <br>
        <%= f.label :car, value: "How much do you spend on your car each month (ex: car payment, insurance)?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="car" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :car, class: "form-control new-budget-input", placeholder: @budget.car.to_i %>
@@ -33,6 +38,7 @@
        </div>
        <br>
        <%= f.label :public_transportation, value: "How much do you pay for your transit pass each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="public_transportation" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :public_transportation, class: "form-control new-budget-input" %>
@@ -40,6 +46,7 @@
        </div>
        <br>
        <%= f.label :insurance, value: "How much do you pay for insurance each month (ex: health, life, homeowner, renters)?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="insurance" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :insurance, class: "form-control new-budget-input" %>
@@ -47,6 +54,7 @@
        </div>
        <br>
        <%= f.label :utilities, value: "How much do you pay for your utilities each month (ex: power, gas, water, garbage)?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="utilities" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :utilities, class: "form-control new-budget-input" %>
@@ -54,6 +62,7 @@
        </div>
        <br>
        <%= f.label :internet, value: "How much do you pay for your internet/cable/home phone each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="internet" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :internet, class: "form-control new-budget-input" %>
@@ -61,6 +70,7 @@
        </div>
        <br>
        <%= f.label :cell_phone, value: "How much do you pay for your cell phone each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="cell_phone" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :cell_phone, class: "form-control new-budget-input" %>
@@ -68,6 +78,7 @@
        </div>
        <br>
        <%= f.label :gym, value: "How much do you pay for your gym membership each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="gym" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :gym, class: "form-control new-budget-input" %>
@@ -75,6 +86,7 @@
        </div>
        <br>
        <%= f.label :charity_donations, value: "How much do you donate to charity each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="charity_donations" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :charity_donations, class: "form-control new-budget-input" %>
@@ -82,6 +94,7 @@
        </div>
        <br>
        <%= f.label :student_loan, value: "How much do you pay for your student loans each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="student_loan" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :student_loan, class: "form-control new-budget-input" %>
@@ -89,19 +102,23 @@
        </div>
        <br>
        <%= f.label :credit_card, value: "How much do you pay towards your credit card each month?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="credit_card" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :credit_card, class: "form-control new-budget-input" %>
          <span class="input-group-addon">.00</span>
        </div>
        <br>
-       <%= f.label :other_expenses, value: "Please list any other recurring monthly fixed expenses?" %>
+       <%= f.label :other_expenses, value: "Please total any other recurring monthly fixed expenses?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="other_expenses" data-content="somethings" aria-hidden="true"></a> 
        <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :other_expenses, class: "form-control new-budget-input" %>
          <span class="input-group-addon">.00</span>
        </div>
        <br>
+       <%= f.label :other_string, value: "Please list the other recurring monthly fixed expenses here?" %>
+       <a class="glyphicon glyphicon-question-sign" tabindex="0" role="button" data-toggle="popover" data-placement="top" id="other_string" data-content="somethings" aria-hidden="true"></a> 
        <%= f.text_field :other_string, class: "form-control", placeholder: "give a one word description of each expense" %>
        <br>         
        <div class="text-right">

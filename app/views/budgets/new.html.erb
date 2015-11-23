@@ -11,6 +11,7 @@
       <div id="new-budget-form">
         <%= form_for @budget do |f| %>
         <%= f.label :net_wages, value: "How much to you earn each month after taxes?" %>
+         
         <div class="input-group">
          <span class="input-group-addon">$</span>
          <%= f.text_field :net_wages, class: "form-control new-budget-input",  autofocus: true %>
