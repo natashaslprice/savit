@@ -153,16 +153,15 @@ Day.create([
 	# 	user_id: 1,
 	# 	created_at: "2015-11-20 19:00:30.11476"
 	# },
-	 {
-	 #budget: 88,
-	# 	transactions_sum: ,
+	{ budget: 88,
+		transactions_sum: 72,
 	 	user_id: 2,
 		created_at: "2015-11-22 19:00:30.11476"
-	},
-	{ budget: 100,
-		transactions_sum: 75,
-		user_id: 8,
-		created_at: "2015-11-23 19:00:30.11476"
+	# },
+	# { budget: 100,
+	# 	transactions_sum: 75,
+	# 	user_id: 8,
+	# 	created_at: "2015-11-23 19:00:30.11476"
 	}])
 
 # seed transactions
