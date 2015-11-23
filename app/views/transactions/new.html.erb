@@ -68,11 +68,11 @@
 	          			<% @user.daily_transactions.reverse.each do |t| %>  
 	            			<li class="list-group-item text-center">
 
-	              				<div>
+	              				<div class="trans-list">
 		              				<!-- date -->
-		              				<span class="text-left col-xs-3"><%=t.created_at.to_formatted_s(:time) %></span>
+		              				<span class="text-left col-xs-4"><%=t.created_at.strftime("%I:%M %p") %></span>
 		              				<!-- amount -->
-		              				<span class="text-center col-xs-3">$<%= t.amount %></span>
+		              				<span class="text-center col-xs-2">$<%= t.amount %></span>
 		              				<!-- category -->
 		              				<span class="text-right col-xs-3"><%=t.category%></span>
 	              				</div>
