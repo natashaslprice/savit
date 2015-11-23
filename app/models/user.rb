@@ -126,7 +126,7 @@ class User < ActiveRecord::Base
 	    # loop over all days
 	    get_days.each do |day|
 	      # daily savings is the difference between budget and total transactions
-	      daily_savings = day.budget - day.transactions_sum
+	      daily_savings = day.budget.to_i - day.transactions_sum.to_i
 	      # push the daily savings into the array
 	      savings_array << daily_savings
 
