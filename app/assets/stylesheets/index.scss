@@ -4,25 +4,34 @@ body {
 
 .logo-section {
 	padding-top: 50px;
+	padding-bottom: 150px;
 	background-color: white;
 	opacity: 1;
 }
 
-.avit {
-	margin-top: 80px;
+
+#logo-index {
+	width: 90px;
+	height: auto;
+	color: green;
+	z-index: 100;
 }
 
-#index-h  {
-	margin: 0;
-	z-index: 100;
+#index-h1  {
+	font-size: 100px;
+	color: black;	
+}
+
+#index-h3 {
 	color: #404040;
+	margin-top: 60px;
 }
 
 .btn-index {
 	width: 200px;
 	height: 40px;
 	box-shadow: none;
-	margin: 40px 20px;
+	margin-top: 100px;
 	background-color: white;
 	color: #1B48E8;
 	font-weight: bold;
@@ -35,17 +44,9 @@ body {
 	border: none;
 }
 
-#logo-index {
-	width: 90px;
-	height: auto;
-	margin: 0 0 20px 0;
-	color: green;
-	z-index: 100;
-}
-
 #top-triangle {
 	background-color: white;
-	opacity: 1;
+	margin-top: 50px;
 }
 
 .glyphicon-triangle-bottom {
@@ -60,16 +61,16 @@ body {
 }
 
 .text-section {
-	background-color: #A3A3A3;
+	background-color: #DEDEDE;
 	padding: 50px 0px;
 }
 
 .glyphicon-usd, .glyphicon-piggy-bank, .glyphicon-folder-open {
 	font-size: 50px;
-	padding: 15px;
-	border: solid 5px;
+	padding: 25px;
+	border: solid 3px;
 	border-radius: 50px;
-	color: #404040;
+	color: #1B48E8;
 	margin: 20px;
 }
 
@@ -78,22 +79,14 @@ body {
 }
 
 #bottom-triangle {
-	background-color: #1B48E8;
+	background-color: #DEDEDE;
 	opacity: 0.8;
 }
 
 #carousel {
 	height: 300px;
 	width: auto;
-	margin: 20px 0 50px 0;
-}
-
-.carousel-caption {
-	color: #333;
-	margin-top: 10px;
-	position: relative;
-	left: auto;
-	right: auto;
+	margin-top: 50px;
 }
 
 .carousel-inner > .item > img {
@@ -105,6 +98,19 @@ body {
 .carousel-control.left, .carousel-control.right {
   background-image: none;
 	color: grey;
+}
+
+footer {
+	height: 90px;
+	background-color: #1B48E8;
+	color: white;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.names {
+	font-size: 15px;
 }
 
 
