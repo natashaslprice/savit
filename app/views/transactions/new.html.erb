@@ -1,4 +1,5 @@
 <%= render "layouts/navbar" %>
+
 <div class="container">
 	<div class="row col-wrap">
 		<div class="today-limit">
@@ -9,14 +10,12 @@
 		<div class="row col-wrap">
 			<div class="col-md-6 col transactions-form">
 				<div class="well">
-
 					<%= form_for @transaction do |f| %>
 			  		<div class="input-group spending-field">
 			    		<span class="input-group-addon">$</span>
 			    			<%= f.number_field :amount, :autofocus=>true, id:"transaction-input", class: "form-control text-center", placeholder: "How much did you spend?" %>
 			    		<span class="input-group-addon">.00</span>
 			  		</div>
-
 					<div class="row text-center">
 						<div class="col-xs-4 cat-btn-div">
 							<%= f.submit class: "btn-success btn btn-block category-btn", value: "Restaurants", name: "category" %>	
@@ -55,7 +54,6 @@
 					<% end %>
 				</div> <!-- end of well -->
 			</div> <!-- end  col div -->
-
 		<div class="col-md-6 col">
 			<div class="well">
 				<h4 class="text-center">Today's Transactions</h4>
