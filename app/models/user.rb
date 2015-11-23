@@ -154,6 +154,8 @@ class User < ActiveRecord::Base
 
 	end
 
+	
+
 	# def total_savings
 	# 	# find today as day of year
 	# 	time_now = Time.now.yday
