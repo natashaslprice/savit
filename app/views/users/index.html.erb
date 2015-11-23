@@ -1,7 +1,59 @@
-<div class="containter">
-	
-	<h1>Welcome</h1>
+<!-- image panel -->
+<div id="carousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1"></li>
+    <li data-target="#carousel" data-slide-to="2"></li>
+  </ol>
 
-	<%= link_to 'Sign Up', '/signup', class:"btn btn-success" %>
-	<%= link_to 'Log In', '/login', class:"btn btn-success" %>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+    	<%= image_tag(asset_path('chart.png')) %>
+      <div class="carousel-caption">
+        <h3>See your savings trend over the last 8 days</h3>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag(asset_path('month.png')) %>
+      <div class="carousel-caption">
+        <h3>See your spending by month</h3>
+      </div>
+    </div>
+    <div class="item">
+      <%= image_tag(asset_path('today.png')) %>
+      <div class="carousel-caption">
+        <h3>Keep track of your spending on a daily basis</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<!-- end of image panel -->
+
+<div class="containter text-center index-container">
+	<!-- insert logo -->
+	<%= image_tag(asset_path('SaveIt.png'), id: "logo-index") %>
+	<h1 id="index-h1">Savit</h1>
+	<p>Monitor your spending and savings</p>
+
+	<div class="row">
+		<div class="col-md-3 col-md-offset-3">
+			<%= link_to 'Sign Up', '/signup', class:"btn btn-success btn-index" %>
+			<br>
+		</div>
+		<div class="col-md-3">
+			<%= link_to 'Log In', '/login', class:"btn btn-success btn-index" %>
+		</div>
+	</div>
 </div>
