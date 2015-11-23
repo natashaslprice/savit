@@ -10,13 +10,13 @@
 			<h5 class="text-center">Your last 7 days:</h5>
 
 			<% graph_hash = { 
-				@user.chart_days[-8] => @user.savings_chart[-7], 
-				@user.chart_days[-7] => @user.savings_chart[-6], 
-				@user.chart_days[-6] => @user.savings_chart[-5], 
-				@user.chart_days[-5] => @user.savings_chart[-4], 
-				@user.chart_days[-4] => @user.savings_chart[-3], 
-				@user.chart_days[-3] => @user.savings_chart[-2],
-				@user.chart_days[-2] => @user.savings_chart[-1]} %>
+				@user.chart_days[-8] => @user.savings_chart[-7].to_i, 
+				@user.chart_days[-7] => @user.savings_chart[-6].to_i, 
+				@user.chart_days[-6] => @user.savings_chart[-5].to_i, 
+				@user.chart_days[-5] => @user.savings_chart[-4].to_i, 
+				@user.chart_days[-4] => @user.savings_chart[-3].to_i, 
+				@user.chart_days[-3] => @user.savings_chart[-2].to_i,
+				@user.chart_days[-2] => @user.savings_chart[-1].to_i} %>
 			
 			<%= column_chart(graph_hash) %>
 		</div> <!-- end of col div -->
