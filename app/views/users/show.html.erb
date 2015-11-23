@@ -3,22 +3,20 @@
 	<div class="row">
 		<h3 class="text-center">Your personal dashboard:</h3>
 	</div>
-	<hr>
 	<div class="row">
 		<div class="col-sm-6 savings-div">
-			<h4 class="text-center">You have saved <strong>$<%= @user.total_savings %></strong></h4>
+			<h4 class="text-center">You have saved <strong>$<%= @user.total_savings %></strong> since <%= @user.created_at.strftime("%m-%d-%y") %></h4>
 			<br>
-			<h4 class="text-center">Insert chart here</h4>
+			<h5 class="text-center">Your last 7 days:</h5>
 
 			<% graph_hash = {
-				@user.chart_days[-8] => @user.savings_chart[-8], 
-				@user.chart_days[-7] => @user.savings_chart[-7], 
-				@user.chart_days[-6] => @user.savings_chart[-6], 
-				@user.chart_days[-5] => @user.savings_chart[-5], 
-				@user.chart_days[-4] => @user.savings_chart[-4], 
-				@user.chart_days[-3] => @user.savings_chart[-3], 
-				@user.chart_days[-2] => @user.savings_chart[-2], 
-				@user.chart_days[-1] => @user.savings_chart[-1]} %>
+				@user.chart_days[-8] => @user.savings_chart[-7], 
+				@user.chart_days[-7] => @user.savings_chart[-6], 
+				@user.chart_days[-6] => @user.savings_chart[-5], 
+				@user.chart_days[-5] => @user.savings_chart[-4], 
+				@user.chart_days[-4] => @user.savings_chart[-3], 
+				@user.chart_days[-3] => @user.savings_chart[-2], 
+				@user.chart_days[-2] => @user.savings_chart[-1]} %>
 			
 			<%= column_chart(graph_hash) %>
 		</div> <!-- end of col div -->
