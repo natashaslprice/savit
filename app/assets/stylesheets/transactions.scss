@@ -5,6 +5,9 @@
 .transactions-form {
 	margin-bottom: 40px;
 }
+.spending-field {
+	margin-bottom: 20px;
+}
 .list-group-item {
 	padding-bottom: 25px;
 }
@@ -24,7 +27,10 @@
 .category-btn {
 	padding: 35px 12px 35px 12px;
 	font-weight: bold;
-	border-radius: 0;
+	border-radius: 5;
+}
+.cat-btn-div{
+	padding: 5px !important;
 }
 @media (max-width: 1200px) {
 	.category-btn {
