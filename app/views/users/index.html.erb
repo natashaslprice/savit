@@ -1,3 +1,72 @@
+<!-- top section of page with logo in -->
+<section class="logo-section text-center">
+  <!-- insert logo -->
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-4">
+      <%= image_tag(asset_path('SaveIt.png'), id: "logo-index") %>
+    </div>
+    <div class="col-xs-4 text-left avit">
+      <h1 id="index-h1">avit</h1>
+    </div>
+  </div>
+  <h3 id="index-h3">Monitor your spending and savings</h3>
+
+  <div class="row">
+    <div class="col-md-3 col-md-offset-3">
+      <%= link_to 'Sign Up', '/signup', class:"btn btn-success btn-index" %>
+      <br>
+    </div>
+    <div class="col-md-3">
+      <%= link_to 'Log In', '/login', class:"btn btn-success btn-index" %>
+    </div>
+  </div>
+</section>
+<!-- triangle div -->
+<div id="top-triangle">
+  <%= link_to '#', class: 'text-center glyphicon glyphicon-triangle-bottom' do %>
+  <% end %>
+</div>
+
+<!-- middle section of page with text in -->
+<section class="text-section">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <div class="col-xs-4">
+        <span class="glyphicon glyphicon-usd"></span>
+      </div>
+      <div class="col-xs-7 text-div">
+        <h5>Log your daily spending</h5>
+        <h5>See how much you have to spend</h5>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="col-xs-4">
+        <span class="glyphicon glyphicon-piggy-bank"></span>
+      </div>
+      <div class="col-xs-7 text-div">
+        <h5>Keep track of what you have saved</h5>
+        <h5>Visual representations of your saving</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="col-xs-4">
+        <span class="glyphicon glyphicon-folder-open"></span>
+      </div>
+      <div class="col-xs-7 text-div">
+        <h5>Review your historic spending by category</h5>
+        <h5>Review your historic spending by month</h5>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="bottom-triangle">
+  <%= link_to '#', class: 'text-center glyphicon glyphicon-triangle-bottom' do %>
+  <% end %>
+</div>
+
+
 <!-- image panel -->
 <div id="carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -40,20 +109,3 @@
   </a>
 </div>
 <!-- end of image panel -->
-
-<div class="containter text-center index-container">
-	<!-- insert logo -->
-	<%= image_tag(asset_path('SaveIt.png'), id: "logo-index") %>
-	<h1 id="index-h1">Savit</h1>
-	<p>Monitor your spending and savings</p>
-
-	<div class="row">
-		<div class="col-md-3 col-md-offset-3">
-			<%= link_to 'Sign Up', '/signup', class:"btn btn-success btn-index" %>
-			<br>
-		</div>
-		<div class="col-md-3">
-			<%= link_to 'Log In', '/login', class:"btn btn-success btn-index" %>
-		</div>
-	</div>
-</div>
