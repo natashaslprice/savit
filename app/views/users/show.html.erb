@@ -1,99 +1,100 @@
 <%= render "layouts/navbar" %>
-<div class="container">
-	<div class="row">
-		<div class="today-limit">
-			<h3 class="text-center">You have saved: <strong>$<%= @user.total_savings %></strong> since <%= @user.created_at.strftime("%m-%d-%y") %></h3>
+<div class="page">
+	<div class="container">
+		<div class="row">
+			<div class="today-limit">
+				<h3 class="text-center">You have saved: <strong>$<%= @user.total_savings %></strong> since <%= @user.created_at.strftime("%m-%d-%y") %></h3>
+			</div>
+			<hr>
 		</div>
-		<hr>
-	</div>
 
-	
-	<div class="row">
-		<div class="col-sm-6 savings-div">
-			<div class="well">
-				<h5 class="text-center">Your last 7 days:</h5>
+		
+		<div class="row">
+			<div class="col-sm-6 savings-div">
+				<div class="well">
+					<h4 class="text-center">Your last 7 days:</h4>
 
-				<% graph_hash = { 
-					@user.chart_days[-8] => @user.savings_chart[-7], 
-					@user.chart_days[-7] => @user.savings_chart[-6], 
-					@user.chart_days[-6] => @user.savings_chart[-5], 
-					@user.chart_days[-5] => @user.savings_chart[-4], 
-					@user.chart_days[-4] => @user.savings_chart[-3], 
-					@user.chart_days[-3] => @user.savings_chart[-2],
-					@user.chart_days[-2] => @user.savings_chart[-1]} %>
-				
-				<%= column_chart(graph_hash) %>
-			</div><!-- end of well -->
-		</div> <!-- end of col div -->
-
-		<div class="col-sm-6 history-div">
-			<div class="well table-well">
-
-				<h4 class="text-center">Your spending history</h4>
-	      		<br>
-	      		<div>
-
-	      		  <!-- Nav tabs -->
-	      		  <ul class="nav nav-tabs" role="tablist">
-	      		    <li role="presentation" class="active"><a href="#category-list" aria-controls="category-list" role="tab" data-toggle="tab">Filter by category</a></li>
-	      		    <li role="presentation"><a href="#month-list" aria-controls="month-list" role="tab" data-toggle="tab">Filter by month</a></li>
-	      		  </ul>
+					<% graph_hash = { 
+						@user.chart_days[-8] => @user.savings_chart[-7], 
+						@user.chart_days[-7] => @user.savings_chart[-6], 
+						@user.chart_days[-6] => @user.savings_chart[-5], 
+						@user.chart_days[-5] => @user.savings_chart[-4], 
+						@user.chart_days[-4] => @user.savings_chart[-3], 
+						@user.chart_days[-3] => @user.savings_chart[-2],
+						@user.chart_days[-2] => @user.savings_chart[-1]} %>
 					
-	      		  <!-- Tab panes -->
-	      		  <div class="tab-content">
-	      		    <div role="tabpanel" class="tab-pane active" id="category-list">
-		      		    <select class="form-control">
-		      		      <option class="category">Choose Category</option>
-		      		      <option class="category">Restaurants</option>
-		      		      <option class="category">Groceries</option>
-		      		      <option class="category">Transport</option>
-		      		      <option class="category">Entertainment</option>
-		      		      <option class="category">Coffee</option>
-		      		      <option class="category">Bars</option>
-		      		      <option class="category">Household</option>
-		      		      <option class="category">Clothing</option>
-		      		      <option class="category">Personal</option>
-		      		    </select>
-		      		    <br>
-	      		    	<div class="row">
-	      		    		<table class="category-table table">
-	      		    			<tr>
-	    		    			    <td><strong>Month</strong></td>
-	    		    			    <td><strong>Total Amount Spent</strong></td>
-	    		    			  </tr>
-	      		    		</table>
-	      		    	</div>
-	      		    </div>
-	      		    <div role="tabpanel" class="tab-pane" id="month-list">
-	      		    	<select class="form-control">
-		      		      <option>Choose Month</option>
-		      		      <option>January</option>
-		      		      <option>February</option>
-		      		      <option>March</option>
-		      		      <option>April</option>
-		      		      <option>May</option>
-		      		      <option>June</option>
-		      		      <option>July</option>
-		      		      <option>August</option>
-		      		      <option>September</option>
-		      		      <option>October</option>
-		      		      <option>November</option>
-		      		      <option>December</option>
-		      		    </select>
-		      		    <br>
-		      		    <div class="row">
-	      		    		<table class="month-table table">
-	      		    			<tr>
-	    		    			    <td><strong>Categories</strong></td>
-	    		    			    <td><strong>Total Amount Spent</strong></td>
-	    		    			  </tr>
-	      		    		</table>
-	      		    	</div>
-		      		   
-	      		    </div>
-	      		  </div>
-	      		</div>
-			</div><!--end of well -->
-		</div> <!-- end of col div -->
-	</div> <!-- end of row -->
- </div> <!-- end of container -->
+					<%= column_chart(graph_hash) %>
+				</div><!-- end of well -->
+			</div> <!-- end of col div -->
+
+			<div class="col-sm-6 history-div">
+				<div class="well table-well">
+
+					<h4 class="text-center">Your spending history</h4>
+		      		<br>
+		      		<div>
+
+		      		  <!-- Nav tabs -->
+		      		  <ul class="nav nav-tabs" role="tablist">
+		      		    <li role="presentation" class="active"><a href="#category-list" aria-controls="category-list" role="tab" data-toggle="tab">Filter by category</a></li>
+		      		    <li role="presentation"><a href="#month-list" aria-controls="month-list" role="tab" data-toggle="tab">Filter by month</a></li>
+		      		  </ul>
+						
+		      		  <!-- Tab panes -->
+		      		  <div class="tab-content">
+		      		    <div role="tabpanel" class="tab-pane active" id="category-list">
+			      		    <select class="form-control category-select">
+			      		      <option class="category">Choose Category</option>
+			      		      <option class="category">Restaurants</option>
+			      		      <option class="category">Groceries</option>
+			      		      <option class="category">Transport</option>
+			      		      <option class="category">Entertainment</option>
+			      		      <option class="category">Coffee</option>
+			      		      <option class="category">Bars</option>
+			      		      <option class="category">Household</option>
+			      		      <option class="category">Clothing</option>
+			      		      <option class="category">Personal</option>
+			      		    </select>
+			      		    <br>
+		      		    	<div class="row">
+		      		    		<table class="category-table table">
+		      		    			<tr>
+		    		    			    <td><strong>Month</strong></td>
+		    		    			    <td><strong>Total Amount Spent</strong></td>
+		    		    			  </tr>
+		      		    		</table>
+		      		    	</div>
+		      		    </div>
+		      		    <div role="tabpanel" class="tab-pane" id="month-list">
+		      		    	<select class="form-control month-select">
+			      		      <option>Choose Month</option>
+			      		      <option>January</option>
+			      		      <option>February</option>
+			      		      <option>March</option>
+			      		      <option>April</option>
+			      		      <option>May</option>
+			      		      <option>June</option>
+			      		      <option>July</option>
+			      		      <option>August</option>
+			      		      <option>September</option>
+			      		      <option>October</option>
+			      		      <option>November</option>
+			      		      <option>December</option>
+			      		    </select>
+			      		    <br>
+			      		    <div class="row">
+		      		    		<table class="month-table table">
+		      		    			<tr>
+		    		    			    <td><strong>Categories</strong></td>
+		    		    			    <td><strong>Total Amount Spent</strong></td>
+		    		    			  </tr>
+		      		    		</table>
+		      		    	</div>			      		   
+		      		    </div>
+		      		  </div>
+		      		</div>
+				</div><!--end of well -->
+			</div> <!-- end of col div -->
+		</div> <!-- end of row -->
+	</div> <!-- end of container -->
+</div>

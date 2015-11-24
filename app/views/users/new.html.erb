@@ -19,10 +19,10 @@
           <%= f.email_field :email, class: "form-control", placeholder: @user.email %>
           <br>
           <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control", placeholder: 'password' %>
+          <%= f.password_field :password, class: "form-control" %>
           <br>
           <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, class: "form-control", placeholder: 'confirm password' %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
           <br>
           <div class="text-right">
             <%= f.submit 'signup', value: "Sign up!", class: "form-btn btn btn-success text-right" %>

@@ -11,13 +11,13 @@
       <div id="sign-up-form">
         <%= form_for :user, url: sessions_path do |f| %>
           <%= f.label :email %>
-          <%= f.email_field :email, placeholder: "Email", class: "form-control", autofocus: true %>
+          <%= f.email_field :email, class: "form-control", autofocus: true %>
           <br>
           <%= f.label :password %>
-          <%= f.password_field :password, class: "form-control", placeholder: 'Password' %>
+          <%= f.password_field :password, class: "form-control" %>
           <br>
           <div class="text-right">
-            <%= f.submit 'signup', value: "Log in!", class: "btn btn-success" %>
+            <%= f.submit 'signup', value: "Log in!", class: "form-btn btn btn-success" %>
           </div>
         <% end %>
       </div>
