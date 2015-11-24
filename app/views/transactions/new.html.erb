@@ -66,7 +66,7 @@
 	      		<ul class="list-group">
 	      			<!-- transactions rendering loop -->
 	        		<% if @user.daily_transactions.any? %>
-	          			<% @user.daily_transactions.reverse.each do |t| %>  
+	          			<% @user.daily_transactions.each do |t| %>  
 	            			<li class="list-group-item text-center">
 
 	              				<div class="trans-list">

@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
 		daily_trans = []
 		#convert this to the day of the year
 		day = Time.current.in_time_zone.yday
-		transactions.each do |t|
+		transactions.order('created_at DESC').each do |t|
 			if day == t.created_at.yday
 				daily_trans << t
 			end
