@@ -71,7 +71,7 @@
 
 	              				<div class="trans-list">
 		              				<!-- date -->
-		              				<span class="text-left col-xs-4"><%=t.created_at.strftime("%I:%M %p") %></span>
+		              				<span class="text-left col-xs-4"><%=t.created_at.in_time_zone.strftime("%I:%M %p") %></span>
 		              				<!-- amount -->
 		              				<span class="text-center col-xs-2">$<%= t.amount %></span>
 		              				<!-- category -->
