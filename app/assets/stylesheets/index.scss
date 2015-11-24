@@ -93,6 +93,9 @@
 .carousel-control.left, .carousel-control.right {
   background-image: none;
 	color: grey;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
 }
 
 footer {
