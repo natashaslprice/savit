@@ -1,14 +1,15 @@
 <%= render "layouts/navbar" %>
 
 <div class="container">
-	<div class="row col-wrap">
+	<div class="row">
 		<div class="today-limit">
 		<h3 class="text-center">Today's spending limit: $<%=@user.calculate_daily_budget.to_i%></h3>
 		</div>
 	</div>
+	<hr>
 	<div class="container">
-		<div class="row col-wrap">
-			<div class="col-md-6 col transactions-form">
+		<div class="row">
+			<div class="col-md-6 transactions-form">
 				<div class="well">
 					<%= form_for @transaction do |f| %>
 			  		<div class="input-group spending-field">
@@ -54,8 +55,8 @@
 					<% end %>
 				</div> <!-- end of well -->
 			</div> <!-- end  col div -->
-		<div class="col-md-6 col">
-			<div class="well">
+		<div class="col-md-6">
+			<div class="well trans-well">
 				<h4 class="text-center">Today's Transactions</h4>
 				<% if @user.daily_transactions[0] == nil %>
 					<br>
@@ -88,10 +89,5 @@
 	    </div><!--end well -->  		
 		</div><!-- end col -->
 	</div><!--end row col-wrap-->
-		<div class="row base col-wrap">
-			<!-- add a second row of wells or rounded corner divs immeadiately underneath-->
-			<div class="col-md-6 col-base"><div class="well"></div></div>
-			<div class="col-md-6 col-base"><div class="well"></div></div>
-		</div><!-- close row -->
 	</div> <!--close inner container -->
 </div> <!--close outer container -->
