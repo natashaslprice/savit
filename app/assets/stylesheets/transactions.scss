@@ -5,12 +5,12 @@
 
 
 .today-limit {
-	padding-top: 50px;
+	padding-top: 60px;
 }
 
 .transactions-form {
 	margin-bottom: 40px;
-	margin-top: 40px;
+	margin-top: 0;
 }
 .spending-field {
 	margin-bottom: 20px;
@@ -19,7 +19,7 @@
 	padding-bottom: 25px;
 }
 .glyphicon-trash {
-	color: #449d44;
+	color: rgba(27,72,232,1);
 }
 .trash-btn {
 	background-color: transparent;
@@ -34,10 +34,20 @@
 .category-btn {
 	padding: 35px 12px 35px 12px;
 	font-weight: bold;
+	color:white;
 	border-radius: 5;
+	background-color: rgba(27,72,232,.8);
+	border: 1px solid #1B48E8;
+}
+.category-btn:hover {
+	background-color:#1B48E8;
+	color: white;
 }
 .cat-btn-div{
 	padding: 5px !important;
+}
+.trans-well {
+	min-height: 391px;
 }
 @media (max-width: 1200px) {
 	.category-btn {
@@ -61,29 +71,4 @@
 	}
 
 }
-
-@media (min-width: 768px) {
-
-/* top row */
-	.col .well{ 
-	    margin-bottom: -99999px;
-	    padding-bottom: 99999px;  
-	}
-	.row.base{
-	    display:none;
-	}
-
-	/* bottom row */
-	.col-base{ 
-	    margin-top: -15px; /* cut off top portion of bottom wells */
-	}
-}
-
-
-
-
-.col-wrap{
-    overflow: hidden; 
-}
-
 
