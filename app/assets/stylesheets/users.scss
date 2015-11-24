@@ -13,24 +13,36 @@ body {
 	border-radius: 10px;
 }
 
+.users-well {
+	margin-top: 80px;
+}
+
+.form-btn {
+	background-color: rgba(27, 72, 232, .8);
+}
+
+.form-btn:hover {
+	background-color: rgba(27, 72, 232, 1);
+}
+
 /* ipad */
 @media (max-width: 768px) {
 	.users-well {
-		margin-top: 200px;
+		margin-top: 100px;
 	}
 }
 
 /* iphone 6 plus */
 @media (max-width: 414px) {
 	.users-well {
-		margin-top: 100px;
+		margin-top: 10px;
 	}
 }
 
 /* iphone 5 and 6 */
 @media (max-width: 380px) {
 	.users-well {
-		margin-top: 50px;
+		margin-top: 75px;
 	}
 }
 #logo-navbar {

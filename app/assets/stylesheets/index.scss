@@ -4,7 +4,6 @@ body {
 
 .logo-section {
 	padding-top: 50px;
-	padding-bottom: 150px;
 	background-color: white;
 	opacity: 1;
 }
@@ -46,7 +45,7 @@ body {
 
 #top-triangle {
 	background-color: white;
-	margin-top: 50px;
+	margin-top: 200px;
 }
 
 .glyphicon-triangle-bottom {
@@ -135,10 +134,8 @@ footer {
 	h1 {
 		margin: 0;
 	}
-	.index-container {
+	.logo-section {
 		padding-top: 80px;
-		padding-bottom: 300px;
-		background-color: #eee;
 	}
 }
 
@@ -163,10 +160,15 @@ footer {
 	h1 {
 		margin: 0;
 	}
-	.index-container {
+	.logo-section {
 		padding-top: 20px;
-		padding-bottom: 150px;
-		background-color: #eee;
+		
+	}
+	.btn-index {
+		margin-top: 50px;
+	}
+	#top-triangle {
+		margin-top: 100px;
 	}
 }
 
@@ -191,10 +193,11 @@ footer {
 	h1 {
 		margin: 0;
 	}
-	.index-container {
+	.logo-section {
 		padding-top: 20px;
-		padding-bottom: 100px;
-		background-color: #eee;
+	}
+	#top-triangle {
+		margin-top: 80px;
 	}
 }
 
